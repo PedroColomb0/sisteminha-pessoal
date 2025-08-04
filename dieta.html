@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dieta e Lista de Compras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 10px;
+      overflow-x: auto;
+    }
+
+    .tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-bottom: none;
+      background-color: #f2f2f2;
+      margin-right: 5px;
+      border-radius: 5px 5px 0 0;
+      white-space: nowrap;
+      font-size: 16px;
+    }
+
+    .tab.active {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .meal-category {
+      background-color: #eaf7fd;
+      font-weight: bold;
+    }
+
+    .check-item {
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .checked {
+      background-color: #e8f5e9;
+    }
+
+    .checkmark {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #4CAF50;
+      border-radius: 4px;
+      position: relative;
+      background-color: white;
+    }
+
+    .checked .checkmark {
+      background-color: #4CAF50;
+    }
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 7px;
+      top: 3px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+
+    .checked .checkmark:after {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      
+      th, td {
+        padding: 8px;
+        font-size: 14px;
+      }
+      
+      .tab {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Meu Plano Alimentar</h1>
+
+  <div class="tabs">
+    <div class="tab active" onclick="openTab('dieta')">Dieta</div>
+    <div class="tab" onclick="openTab('compras')">Lista de Compras</div>
+  </div>
+
+  <div id="dieta" class="tab-content active">
+    <h2>Plano de Dieta Semanal</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Refeição</th>
+          <th>Alimentos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="meal-category">
+          <td>Café da Manhã</td>
+          <td>2 Pães Integral ou 4 Torradas / 2 Ovos de Galinha / 1 Maçã ou Pêra ou Kiwi</td>
+        </tr>
+        <tr class="meal-category">
+          <td>Almoço</td>
+          <td>100g Batata Doce / Frango (150g) ou Carne (130g) / Feijão (80g) / Salada à Vontade</td>
+        </tr>
+        <tr class="meal-category">
+          <td>Lanche da Tarde</td>
+          <td>1 Iogurte Desnatado + 2 Colheres de Aveia / 1 Maçã ou Pêra ou Kiwi</td>
+        </tr>
+        <tr class="meal-category">
+          <td>Jantar</td>
+          <td>Batata Doce (100g) / (130g Peito de Frango ou 120g Carne Bovina) / Salada</td>
+        </tr>
+        <tr class="meal-category">
+          <td>Suplemento</td>
+          <td>Creatina (5g)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="compras" class="tab-content">
+    <h2>✅ Lista Completa de Compras da Semana</h2>
+    
+    <table id="shopping-list">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantidade</th>
+          <th>Comprado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pão integral</td>
+          <td>1 pacote</td>
+          <td class="check-item" data-item="Pão integral"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Torrada integral</td>
+          <td>1 caixa</td>
+          <td class="check-item" data-item="Torrada integral"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Ovos de galinha</td>
+          <td>14 unidades</td>
+          <td class="check-item" data-item="Ovos de galinha"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Maçã</td>
+          <td>4 unidades</td>
+          <td class="check-item" data-item="Maçã"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Pera</td>
+          <td>3 unidades</td>
+          <td class="check-item" data-item="Pera"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Kiwi</td>
+          <td>3 unidades</td>
+          <td class="check-item" data-item="Kiwi"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Batata-doce</td>
+          <td>1,4 kg</td>
+          <td class="check-item" data-item="Batata-doce"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Aveia em flocos</td>
+          <td>1 pacote</td>
+          <td class="check-item" data-item="Aveia em flocos"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Peito de frango</td>
+          <td>1,5 kg</td>
+          <td class="check-item" data-item="Peito de frango"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Carne bovina magra</td>
+          <td>910 g</td>
+          <td class="check-item" data-item="Carne bovina magra"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Feijão cru</td>
+          <td>300 g</td>
+          <td class="check-item" data-item="Feijão cru"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Alface</td>
+          <td>2 pés</td>
+          <td class="check-item" data-item="Alface"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Rúcula</td>
+          <td>1 maço</td>
+          <td class="check-item" data-item="Rúcula"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Agrião</td>
+          <td>1 maço</td>
+          <td class="check-item" data-item="Agrião"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Tomate</td>
+          <td>5 unidades</td>
+          <td class="check-item" data-item="Tomate"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Pepino</td>
+          <td>2 unidades</td>
+          <td class="check-item" data-item="Pepino"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Cenoura</td>
+          <td>3 unidades</td>
+          <td class="check-item" data-item="Cenoura"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Iogurte desnatado natural</td>
+          <td>7 unidades ou 2 potes grandes</td>
+          <td class="check-item" data-item="Iogurte desnatado natural"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Creatina</td>
+          <td>1 pote (mínimo 35g)</td>
+          <td class="check-item" data-item="Creatina"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Chá verde</td>
+          <td>1 caixa ou pacote a granel</td>
+          <td class="check-item" data-item="Chá verde"><div class="checkmark"></div></td>
+        </tr>
+        <tr>
+          <td>Chá branco</td>
+          <td>1 caixa ou pacote a granel</td>
+          <td class="check-item" data-item="Chá branco"><div class="checkmark"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function openTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.querySelector(`.tab[onclick*="${tabId}"]`).classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Carregar itens marcados do localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkItems = document.querySelectorAll('.check-item');
+      
+      checkItems.forEach(item => {
+        const itemName = item.getAttribute('data-item');
+        const isChecked = localStorage.getItem(itemName) === 'true';
+        const checkmark = item.querySelector('.checkmark');
+        
+        if (isChecked) {
+          item.classList.add('checked');
+          item.parentElement.classList.add('checked');
+        }
+        
+        item.addEventListener('click', function() {
+          this.classList.toggle('checked');
+          this.parentElement.classList.toggle('checked');
+          const isNowChecked = this.classList.contains('checked');
+          localStorage.setItem(itemName, isNowChecked);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
