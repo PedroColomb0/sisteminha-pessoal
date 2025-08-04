@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Site</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <nav>
+        <ul>
+          <li><a href="#" onclick="carregarPagina('home.html')">Home</a></li>
+          <li><a href="#" onclick="carregarPagina('cronograma.html')">Cronograma</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="conteudo">
+      <iframe id="conteudo-frame" src="home.html"></iframe>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

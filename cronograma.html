@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tabs com Tabelas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-bottom: none;
+      background-color: #f2f2f2;
+      margin-right: 5px;
+    }
+
+    .tab.active {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    table, th, td {
+      border: 1px solid #999;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cronograma</h1>
+
+  <div class="tabs">
+    <div class="tab active" onclick="openTab('lista1')">Lista 1</div>
+    <div class="tab" onclick="openTab('lista2')">Lista 2</div>
+  </div>
+
+  <div id="lista1" class="tab-content active">
+    <h2>Lista 1</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Dia</th>
+          <th>Horário</th>
+          <th>Atividade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Segunda</td>
+          <td>08:00</td>
+          <td>Estudar</td>
+        </tr>
+        <tr>
+          <td>Terça</td>
+          <td>10:00</td>
+          <td>Academia</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="lista2" class="tab-content">
+    <h2>Lista 2</h2>
+
+    <h3>Lista 3</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Evento</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01/01</td>
+          <td>Reunião</td>
+          <td>Confirmado</td>
+        </tr>
+        <tr>
+          <td>02/01</td>
+          <td>Entrega</td>
+          <td>Pendente</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Lista 4</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Projeto</th>
+          <th>Responsável</th>
+          <th>Prazo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sistema X</td>
+          <td>Ana</td>
+          <td>10/08</td>
+        </tr>
+        <tr>
+          <td>Site Y</td>
+          <td>Pedro</td>
+          <td>15/08</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function openTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.querySelector(`.tab[onclick*="${tabId}"]`).classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
