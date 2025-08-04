@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento de Treino Semanal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #f0f0f0;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .tab.active {
+            background-color: #ff6b6b;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            background-color: white;
+            border-radius: 0 5px 5px 5px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .workout-type {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .exercise {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .exercise:last-child {
+            border-bottom: none;
+        }
+        
+        .exercise-name {
+            font-weight: bold;
+            color: #444;
+            font-size: 1.05em;
+        }
+        
+        .exercise-details {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 8px;
+            display: grid;
+            grid-template-columns: 40px 40px 1fr;
+            gap: 10px;
+        }
+        
+        .notes {
+            font-size: 0.85em;
+            color: #888;
+            font-style: italic;
+            margin-top: 8px;
+            padding-left: 10px;
+            border-left: 3px solid #e0e0e0;
+        }
+        
+        .focus {
+            margin-top: 20px;
+            font-size: 0.9em;
+            background-color: #fff5f5;
+            padding: 12px;
+            border-radius: 5px;
+            color: #d23669;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .water-tracker {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .water-header {
+            color: #1976d2;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .water-goal {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .water-progress {
+            height: 25px;
+            background-color: #bbdefb;
+            border-radius: 12px;
+            flex-grow: 1;
+            margin: 0 15px;
+            overflow: hidden;
+        }
+        
+        .water-filled {
+            height: 100%;
+            background-color: #2196f3;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .water-tips {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        
+        .water-tip {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .water-tip:before {
+            content: "•";
+            color: #2196f3;
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 600px) {
+            .tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 5px;
+            }
+            
+            .tab {
+                padding: 8px 15px;
+                font-size: 0.9em;
+                white-space: nowrap;
+            }
+            
+            .exercise-details {
+                grid-template-columns: 30px 30px 1fr;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Planejamento de Treino Semanal</h1>
+    
+    <div class="tabs">
+        <div class="tab active" data-tab="seg">SEGUNDA</div>
+        <div class="tab" data-tab="ter">TERÇA</div>
+        <div class="tab" data-tab="qua">QUARTA</div>
+        <div class="tab" data-tab="qui">QUINTA</div>
+        <div class="tab" data-tab="sex">SEXTA</div>
+        <div class="tab" data-tab="sab">SÁBADO</div>
+    </div>
+    
+    <!-- Segunda-feira -->
+    <div class="tab-content active" id="seg">
+        <div class="workout-type">Glúteo + Posterior + Cardio</div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Bicicleta ergométrica</div>
+            <div class="exercise-details">
+                <span>1x</span>
+                <span>10-15 min</span>
+                <span>N/A</span>
+            </div>
+            <div class="notes">Aquecimento em ritmo leve</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Cadeira Flexora</div>
+            <div class="exercise-details">
+                <span>4x</span>
+                <span>12</span>
+                <span>20kg</span>
+            </div>
+            <div class="notes">Movimento lento, controle total</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Cadeira Extensora</div>
+            <div class="exercise-details">
+                <span>4x</span>
+                <span>15</span>
+                <span>15kg</span>
+            </div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Abdução de quadril</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>15</span>
+                <span>25kg</span>
+            </div>
+            <div class="notes">Máquina abdutora, movimento controlado</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Leg Press 45°</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>10</span>
+                <span>80kg</span>
+            </div>
+            <div class="notes">Pés altos (posterior) e colocar no meio para quadriceps</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Elevação pélvica</div>
+            <div class="exercise-details">
+                <span>4x</span>
+                <span>12</span>
+                <span>10kg</span>
+            </div>
+            <div class="notes">Halter no quadril, seguro para lombar</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Ponte isométrica</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>20 seg</span>
+                <span>Corpo</span>
+            </div>
+            <div class="notes">No solo, sem carga</div>
+        </div>
+        
+        <div class="focus">🎯 Foco do Treino: Glúteo, posterior e segurança da coluna</div>
+    </div>
+    
+    <!-- Terça-feira -->
+    <div class="tab-content" id="ter">
+        <div class="workout-type">Superiores (Peito, Costas, Braços)</div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Puxador pulley frente</div>
+            <div class="exercise-details">
+                <span>4x</span>
+                <span>12</span>
+                <span>35kg</span>
+            </div>
+            <div class="notes">Barra longa, puxar para o peito</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Remada baixa (triângulo)</div>
+            <div class="exercise-details">
+                <span>4x</span>
+                <span>12</span>
+                <span>40kg</span>
+            </div>
+            <div class="notes">Peito estufado, juntar escápulas</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Peck Deck</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>12</span>
+                <span>30kg</span>
+            </div>
+            <div class="notes">Ombros para trás, espremer peitoral</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Supino com halteres</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>10</span>
+                <span>12kg</span>
+            </div>
+            <div class="notes">Banco livre, movimento controlado</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Rosca direta</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>12</span>
+                <span>15kg</span>
+            </div>
+            <div class="notes">Barra ou halter, isolar bíceps</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Tríceps pulley</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>12</span>
+                <span>25kg</span>
+            </div>
+            <div class="notes">Corda ou barra, cotovelos fixos</div>
+        </div>
+        
+        <div class="focus">🎯 Foco do Treino: Peito, costas e braços com execução controlada</div>
+    </div>
+    
+    <!-- Quarta-feira -->
+    <div class="tab-content" id="qua">
+        <div class="workout-type">Inferiores (Glúteo e Posterior)</div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Bicicleta</div>
+            <div class="exercise-details">
+                <span>1x</span>
+                <span>10 min</span>
+                <span>N/A</span>
+            </div>
+            <div class="notes">Aquecimento leve</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Leg Press sentado</div>
+            <div class="exercise-details">
+                <span>4x</span>
+                <span>12</span>
+                <span>70kg</span>
+            </div>
+            <div class="notes">Empurrar o metal, movimento controlado</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Cadeira flexora</div>
+            <div class="exercise-details">
+                <span>4x</span>
+                <span>12</span>
+                <span>25kg</span>
+            </div>
+            <div class="notes">Foco no posterior da coxa</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Afundo com halteres</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>10</span>
+                <span>8kg</span>
+            </div>
+            <div class="notes">Curto, sem forçar lombar</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Agachamento Livre sem peso</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>15</span>
+                <span>5kg</span>
+            </div>
+            <div class="notes">Caneleira ou cross cabo</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Abdução deitada</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>15</span>
+                <span>3kg</span>
+            </div>
+            <div class="notes">Com caneleira, lateral da coxa</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Ponte isométrica</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>20 seg</span>
+                <span>Corpo</span>
+            </div>
+            <div class="notes">Com bola ou colchonete</div>
+        </div>
+        
+        <div class="focus">🎯 Foco do Treino: Glúteo e posterior com ênfase na execução</div>
+    </div>
+    
+    <!-- Quinta-feira -->
+    <div class="tab-content" id="qui">
+        <div class="workout-type">Costas, Ombros e Braços</div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Puxada barra pulley</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>12</span>
+                <span>30kg</span>
+            </div>
+            <div class="notes">Em pé, movimento controlado</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Remada baixa</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>12</span>
+                <span>35kg</span>
+            </div>
+            <div class="notes">Triângulo, peito estufado</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Elevação lateral</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>12</span>
+                <span>6kg</span>
+            </div>
+            <div class="notes">Halteres, isolar ombros</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Rosca alternada</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>10</span>
+                <span>10kg</span>
+            </div>
+            <div class="notes">Halter, alternar braços</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Tríceps banco/pulley</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>12</span>
+                <span>20kg</span>
+            </div>
+            <div class="notes">Escolher entre banco ou pulley</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Barra fixa apoiada</div>
+            <div class="exercise-details">
+                <span>2x</span>
+                <span>Máx</span>
+                <span>Corpo</span>
+            </div>
+            <div class="notes">Com apoio se necessário</div>
+        </div>
+        
+        <div class="focus">🎯 Foco do Treino: Costas, ombros e braços com técnica perfeita</div>
+    </div>
+    
+    <!-- Sexta-feira -->
+    <div class="tab-content" id="sex">
+        <div class="workout-type">Glúteo + Posterior (Final da semana)</div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Bicicleta leve</div>
+            <div class="exercise-details">
+                <span>1x</span>
+                <span>10 min</span>
+                <span>N/A</span>
+            </div>
+            <div class="notes">Aquecimento suave</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Cadeira abdutora</div>
+            <div class="exercise-details">
+                <span>4x</span>
+                <span>15</span>
+                <span>20kg</span>
+            </div>
+            <div class="notes">Velocidade lenta, controle total</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Glúteo Caneleira</div>
+            <div class="exercise-details">
+                <span>4x</span>
+                <span>15</span>
+                <span>10kg</span>
+            </div>
+            <div class="notes">Com tornozeleira, foco glúteo</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Step-up com halteres</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>10</span>
+                <span>6kg</span>
+            </div>
+            <div class="notes">Subir no banco com cuidado</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Leg press pés altos</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>12</span>
+                <span>60kg</span>
+            </div>
+            <div class="notes">Pés altos e abertos na plataforma</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Ponte uma perna</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>10</span>
+                <span>Corpo</span>
+            </div>
+            <div class="notes">Elevação alternada por lado</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Exercicio Bom Dia</div>
+            <div class="exercise-details">
+                <span>2x</span>
+                <span>10</span>
+                <span>8kg</span>
+            </div>
+            <div class="notes">OPCIONAL - só se sem dor, leve</div>
+        </div>
+        
+        <div class="focus">🎯 Foco do Treino: Finalizar a semana fortalecendo glúteo e posterior</div>
+    </div>
+    
+    <!-- Sábado -->
+    <div class="tab-content" id="sab">
+        <div class="workout-type">Cardio e Mobilidade</div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Bicicleta</div>
+            <div class="exercise-details">
+                <span>1x</span>
+                <span>20-30 min</span>
+                <span>N/A</span>
+            </div>
+            <div class="notes">Ritmo confortável, baixo impacto</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Mobilidade quadril</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>10</span>
+                <span>Corpo</span>
+            </div>
+            <div class="notes">Gato-camelo, alongamento borboleta</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Mobilidade lombar</div>
+            <div class="exercise-details">
+                <span>3x</span>
+                <span>30 seg</span>
+                <span>Corpo</span>
+            </div>
+            <div class="notes">Deitado, abraçando joelhos</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Respiração diafragmática</div>
+            <div class="exercise-details">
+                <span>5x</span>
+                <span>1 min</span>
+                <span>N/A</span>
+            </div>
+            <div class="notes">Exercício de respiração profunda</div>
+        </div>
+        
+        <div class="exercise">
+            <div class="exercise-name">Exercícios do fisio</div>
+            <div class="exercise-details">
+                <span>Conforme</span>
+                <span>orientação</span>
+                <span>Variável</span>
+            </div>
+            <div class="notes">Abdominal e estabilidade prescritos</div>
+        </div>
+        
+        <div class="focus">🎯 Foco do Treino: Recuperação ativa e mobilidade</div>
+    </div>
+    
+    <div class="water-tracker">
+        <div class="water-header">💧 Hidratação Diária</div>
+        <div class="water-goal">
+            <span>Meta:</span>
+            <span>6 garrafas (3,9L)</span>
+        </div>
+        <div class="water-goal">
+            <span>Progresso:</span>
+            <div class="water-progress">
+                <div class="water-filled" id="waterProgress"></div>
+            </div>
+            <span id="waterAmount">0.0L / 3,9L</span>
+        </div>
+        
+        <div class="water-tips">
+            <div class="water-tip">Leve a garrafa com você - deixe sempre visível</div>
+            <div class="water-tip">Defina lembretes no celular se precisar</div>
+            <div class="water-tip">Não espere ter sede - beba regularmente</div>
+            <div class="water-tip">Em dias quentes ou treinos pesados, beba mais</div>
+            <div class="water-tip">Chás sem açúcar e água de coco também contam</div>
+        </div>
+    </div>
+
+    <script>
+        // Sistema de abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove classe active de todas as abas e conteúdos
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Adiciona classe active na aba clicada
+                    tab.classList.add('active');
+                    
+                    // Mostra o conteúdo correspondente
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Simulação de progresso de hidratação
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += 5;
+                document.getElementById('waterProgress').style.width = progress + '%';
+                document.getElementById('waterAmount').textContent = 
+                    (3.9 * progress / 100).toFixed(1) + 'L / 3,9L';
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                }
+            }, 200);
+        });
+    </script>
+</body>
+</html>
