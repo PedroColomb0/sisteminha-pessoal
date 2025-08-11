@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>plano-fds - Plano de Estudos</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        :root {
+            --bg: #f4f7f9;
+            --card: #fff;
+            --accent: #3498db;
+            --muted: #e0e0e0;
+            --text: #333;
+            --heading: #2c3e50;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 24px;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            background-color: var(--card);
+            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--heading);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 18px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-weight: 600;
+            color: #555;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active {
+            border-bottom: 3px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 18px;
+        }
+
+        thead th {
+            text-align: left;
+            padding: 12px 14px;
+            background: #ecf4fb;
+            color: #244a6b;
+            border-bottom: 1px solid var(--muted);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        tbody td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: top;
+            font-size: 0.98rem;
+        }
+
+        tbody tr:nth-child(even) { background: #fbfdff; }
+        tbody tr:hover { background: #eef8ff; }
+
+        .duration { white-space: nowrap; width: 90px; font-weight: 600; color: #2b3b4a; }
+        .time { white-space: nowrap; width: 140px; font-weight: 700; color: #173a59; }
+        .activity { min-width: 260px; }
+        .note { color: #57636b; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Plano FDS — Plano de Estudos</h1>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="sabado">Sábado - 08:00</button>
+            <button class="tab-btn" data-tab="domingo">Domingo - 06:00</button>
+        </div>
+
+        <!-- Conteúdo Sábado -->
+        <div id="sabado" class="tab-content active">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="time">Horário</th>
+                        <th class="duration">Duração</th>
+                        <th class="activity">Atividade</th>
+                        <th class="note">Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>07:30 - 08:30</td><td>60 min</td><td>📚 Estudo - Bloco 1 (Ex: Matéria A - Teoria)</td><td>Comece com uma matéria que exija mais concentração. Sua mente está descansada.</td></tr>
+                    <tr><td>08:30 - 08:45</td><td>15 min</td><td>☕️ Pausa Curta</td><td>Alongue, beba água, pegue um café. Evite o celular.</td></tr>
+                    <tr><td>08:45 - 09:45</td><td>60 min</td><td>📚 Estudo - Bloco 2 (Ex: Matéria B - Teoria)</td><td>Alterne para outra matéria para manter o cérebro engajado.</td></tr>
+                    <tr><td>09:45 - 10:00</td><td>15 min</td><td>💧 Pausa Curta</td><td>Respire fundo, olhe pela janela.</td></tr>
+                    <tr><td>10:00 - 11:00</td><td>60 min</td><td>✍️ Estudo - Bloco 3 (Ex: Matéria A - Exercícios)</td><td>Volte para a primeira matéria, agora com foco em exercícios para fixação.</td></tr>
+                    <tr><td>11:00 - 12:00</td><td>60 min</td><td>✍️ Estudo - Bloco 4 (Ex: Matéria B - Exercícios)</td><td>Pratique a segunda matéria. Resolução de problemas = revisão ativa.</td></tr>
+                    <tr><td>12:00 - 13:00</td><td>60 min</td><td>🍽️ Almoço</td><td>Refeição nutritiva; prefira comer fora da área de estudos.</td></tr>
+                    <tr><td>13:00 - 13:45</td><td>45 min</td><td>😴 Cochilo Restaurador</td><td>Programe alarme. Cochilo recarrega a energia.</td></tr>
+                    <tr><td>13:45 - 14:00</td><td>15 min</td><td>☀️ Despertar</td><td>Acorde com calma, beba água; um café leve se precisar.</td></tr>
+                    <tr><td>14:00 - 15:00</td><td>60 min</td><td>📚 Estudo - Bloco 5 (Ex: Matéria C - Teoria)</td><td>Introduza nova matéria ou média dificuldade.</td></tr>
+                    <tr><td>15:00 - 15:15</td><td>15 min</td><td>🏃‍♂️ Pausa Curta</td><td>Caminhe, faça polichinelos rápidos para ativar a circulação.</td></tr>
+                    <tr><td>15:15 - 16:15</td><td>60 min</td><td>🔄 Estudo - Bloco 6 (Revisão da Semana)</td><td>Revise tópicos importantes estudados na semana.</td></tr>
+                    <tr><td>16:15 - 16:30</td><td>15 min</td><td>🍎 Pausa para Lanche</td><td>Fruta ou lanche leve para manter energia.</td></tr>
+                    <tr><td>16:30 - 17:30</td><td>60 min</td><td>✍️ Estudo - Bloco 7 (Ex: Matéria C - Exercícios)</td><td>Prática da matéria iniciada à tarde.</td></tr>
+                    <tr><td>17:30 - 18:30</td><td>60 min</td><td>📝 Estudo - Bloco 8 (Resumo do Dia/Flashcards)</td><td>Crie resumos ou flashcards para consolidar o conteúdo.</td></tr>
+                    <tr><td>18:30 - 19:00</td><td>30 min</td><td>🧹 Finalização e Organização</td><td>Guarde materiais e deixe a mesa pronta para o próximo dia.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Conteúdo Domingo -->
+        <div id="domingo" class="tab-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="time">Horário</th>
+                        <th class="duration">Duração</th>
+                        <th class="activity">Atividade</th>
+                        <th class="note">Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>13:00 - 14:00</td><td>60 min</td><td>🔄 Estudo - Bloco 1 (Revisão do Sábado)</td><td>Comece revisando os resumos ou exercícios de sábado. Isso "aquecerá" seu cérebro.</td></tr>
+                    <tr><td>14:00 - 14:15</td><td>15 min</td><td>💧 Pausa Curta</td><td>Alongue o pescoço e as costas.</td></tr>
+                    <tr><td>14:15 - 15:15</td><td>60 min</td><td>📚 Estudo - Bloco 2 (Foco em Dificuldades)</td><td>Pegue a matéria ou tópico que você tem mais dificuldade e dedique um tempo exclusivo a ele.</td></tr>
+                    <tr><td>15:15 - 15:30</td><td>15 min</td><td>☕️ Pausa Curta</td><td>Respire e prepare-se para o próximo bloco.</td></tr>
+                    <tr><td>15:30 - 16:30</td><td>60 min</td><td>✍️ Estudo - Bloco 3 (Exercícios Gerais/Simulado)</td><td>Faça lista de exercícios variados ou mini simulado cronometrado.</td></tr>
+                    <tr><td>16:30 - 17:00</td><td>30 min</td><td>🥪 Pausa Longa para Lanche</td><td>Descanso maior para recarregar antes da noite.</td></tr>
+                    <tr><td>17:00 - 18:00</td><td>60 min</td><td>📚 Estudo - Bloco 4 (Ex: Matéria D - Leitura/Teoria)</td><td>Matéria mais leve ou de interesse pessoal para este horário.</td></tr>
+                    <tr><td>18:00 - 18:15</td><td>15 min</td><td>🏃‍♂️ Pausa Curta</td><td>Movimente-se um pouco.</td></tr>
+                    <tr><td>18:15 - 19:15</td><td>60 min</td><td>✍️ Estudo - Bloco 5 (Correção do Simulado/Exercícios)</td><td>Corrija os exercícios e entenda cada erro.</td></tr>
+                    <tr><td>19:15 - 20:15</td><td>60 min</td><td>📅 Estudo - Bloco 6 (Planejamento da Semana)</td><td>Revise o conteúdo do fim de semana e planeje as metas.</td></tr>
+                    <tr><td>20:15 - 20:30</td><td>15 min</td><td>✅ Encerramento</td><td>Organize tudo e relaxe. Você completou a maratona de estudos!</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
