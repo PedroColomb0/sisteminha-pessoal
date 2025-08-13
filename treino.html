@@ -158,11 +158,14 @@
             align-items: center;
         }
         
-        .water-tip:before {
-            content: "•";
-            color: #2196f3;
+        .water-tip.completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+        
+        .water-tip input[type="checkbox"] {
             margin-right: 8px;
-            font-size: 1.2em;
+            accent-color: #2196f3;
         }
         
         @media (max-width: 600px) {
@@ -632,14 +635,35 @@
             <span id="waterAmount">0.0L / 3,9L</span>
         </div>
         
-        <div class="water-tips">
-            <div class="water-tip"><strong>04:30 - 06:30 | 600ML</strong></div>
-            <div class="water-tip"><strong>07:30 - 11:00 | 600ML</strong></div>
-            <div class="water-tip"><strong>12:00 - 13:00 | 600ML</strong></div>
-            <div class="water-tip"><strong>14:00 - 15:00 | 600ML</strong></div>
-            <div class="water-tip"><strong>15:00 - 18:00 | 600ML</strong></div>
-            <div class="water-tip"><strong>18:00 - 20:00 | 1200ML</strong></div>
-            <div class="water-tip"><strong>SOMA - 4.200ML</strong></div>
+        <div class="water-tips" id="waterTips">
+            <div class="water-tip" data-volume="600">
+                <input type="checkbox" class="water-checkbox">
+                <strong>04:30 - 06:30 | 600ML</strong>
+            </div>
+            <div class="water-tip" data-volume="600">
+                <input type="checkbox" class="water-checkbox">
+                <strong>07:30 - 11:00 | 600ML</strong>
+            </div>
+            <div class="water-tip" data-volume="600">
+                <input type="checkbox" class="water-checkbox">
+                <strong>12:00 - 13:00 | 600ML</strong>
+            </div>
+            <div class="water-tip" data-volume="600">
+                <input type="checkbox" class="water-checkbox">
+                <strong>14:00 - 15:00 | 600ML</strong>
+            </div>
+            <div class="water-tip" data-volume="600">
+                <input type="checkbox" class="water-checkbox">
+                <strong>15:00 - 18:00 | 600ML</strong>
+            </div>
+            <div class="water-tip" data-volume="1200">
+                <input type="checkbox" class="water-checkbox">
+                <strong>18:00 - 20:00 | 1200ML</strong>
+            </div>
+            <div class="water-tip" data-volume="4200">
+                <input type="checkbox" class="water-checkbox">
+                <strong>SOMA - 4.200ML</strong>
+            </div>
         </div>
     </div>
 
@@ -651,31 +675,56 @@
             
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    // Remove classe active de todas as abas e conteúdos
                     tabs.forEach(t => t.classList.remove('active'));
                     tabContents.forEach(c => c.classList.remove('active'));
                     
-                    // Adiciona classe active na aba clicada
                     tab.classList.add('active');
-                    
-                    // Mostra o conteúdo correspondente
                     const tabId = tab.getAttribute('data-tab');
                     document.getElementById(tabId).classList.add('active');
                 });
             });
             
-            // Simulação de progresso de hidratação
-            let progress = 0;
-            const progressInterval = setInterval(() => {
-                progress += 5;
-                document.getElementById('waterProgress').style.width = progress + '%';
-                document.getElementById('waterAmount').textContent = 
-                    (3.9 * progress / 100).toFixed(1) + 'L / 3,9L';
+            // Sistema de hidratação com local storage
+            const waterCheckboxes = document.querySelectorAll('.water-checkbox');
+            const waterProgress = document.getElementById('waterProgress');
+            const waterAmount = document.getElementById('waterAmount');
+            const GOAL = 3900; // Meta de 3,9L em ml
+            
+            // Carregar estado do local storage
+            let waterState = JSON.parse(localStorage.getItem('waterState')) || {};
+            
+            function updateProgress() {
+                let totalConsumed = 0;
+                waterCheckboxes.forEach((checkbox, index) => {
+                    const tip = checkbox.parentElement;
+                    const volume = parseInt(tip.getAttribute('data-volume'));
+                    if (checkbox.checked) {
+                        totalConsumed += volume;
+                        tip.classList.add('completed');
+                    } else {
+                        tip.classList.remove('completed');
+                    }
+                    // Salvar estado
+                    waterState[index] = checkbox.checked;
+                });
                 
-                if (progress >= 100) {
-                    clearInterval(progressInterval);
-                }
-            }, 200);
+                // Calcular progresso
+                const progressPercent = Math.min((totalConsumed / GOAL) * 100, 100);
+                waterProgress.style.width = progressPercent + '%';
+                waterAmount.textContent = (totalConsumed / 1000).toFixed(1) + 'L / 3,9L';
+                
+                // Salvar no local storage
+                localStorage.setItem('waterState', JSON.stringify(waterState));
+            }
+            
+            // Inicializar checkboxes com base no local storage
+            waterCheckboxes.forEach((checkbox, index) => {
+                checkbox.checked = waterState[index] || false;
+                checkbox.addEventListener('change', updateProgress);
+            });
+            
+            // Atualizar progresso inicial
+            updateProgress();
         });
     </script>
 </body>
