@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plano de Treino Semanal</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f7f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #3498db;
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #3498db;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    table, th, td {
+      border: 1px solid #e0e0e0;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ecf0f1;
+      font-weight: 600;
+      color: #34495e;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+      background-color: #e8f4fd;
+    }
+
+    .done {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Plano de Treino Semanal</h1>
+
+    <!-- Dias da semana -->
+    <div id="treino"></div>
+  </div>
+
+  <script>
+    const treinoSemana = {
+      "Segunda-feira": [
+        "Exercício do K - 10 repetições lentas (5s segurar, 5s relaxar) × 3 séries",
+        "Exercício do K - 5 repetições rápidas × 3 séries"
+      ],
+      "Terça-feira": [
+        "Exercício do K - 12 repetições lentas (7s segurar, 5s relaxar) × 3 séries",
+        "Exercício do K - 10 repetições rápidas × 3 séries",
+        "Exercício do K - 1 contração longa (15s)"
+      ],
+      "Quarta-feira": [
+        "Exercício do K - 12 repetições lentas × 3 séries",
+        "Exercício do K - 10 rápidas × 3 séries"
+      ],
+      "Quinta-feira": [
+        "Exercício do K - 15 repetições lentas (10s segurar) × 3 séries",
+        "Exercício do K - 15 rápidas × 3 séries",
+        "Exercício do K - 2 contrações longas (20s cada)"
+      ],
+      "Sexta-feira": [
+        "Exercício do K - 15 lentas × 3 séries",
+        "Exercício do K - 10 rápidas × 3 séries"
+      ],
+      "Sábado": [
+        "Exercício do K - 10 lentas × 2 séries",
+        "Exercício do K - 5 rápidas × 2 séries"
+      ],
+      "Domingo": [
+        "Exercício do K - Sessão leve: 5 lentas, 5 rápidas"
+      ]
+    };
+
+    const container = document.getElementById("treino");
+
+    // Carregar estado salvo
+    let saved = JSON.parse(localStorage.getItem("treinoFeito")) || {};
+
+    function render() {
+      container.innerHTML = "";
+      Object.keys(treinoSemana).forEach((dia, i) => {
+        const h2 = document.createElement("h2");
+        h2.textContent = dia;
+        container.appendChild(h2);
+
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        thead.innerHTML = "<tr><th>Exercício</th><th>Feito</th></tr>";
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
+
+        treinoSemana[dia].forEach((ex, j) => {
+          const tr = document.createElement("tr");
+
+          const tdEx = document.createElement("td");
+          tdEx.textContent = ex;
+          if (saved[`${dia}-${j}`]) tdEx.classList.add("done");
+
+          const tdCheck = document.createElement("td");
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.checked = saved[`${dia}-${j}`] || false;
+
+          checkbox.addEventListener("change", () => {
+            saved[`${dia}-${j}`] = checkbox.checked;
+            localStorage.setItem("treinoFeito", JSON.stringify(saved));
+            render();
+          });
+
+          tdCheck.appendChild(checkbox);
+          tr.appendChild(tdEx);
+          tr.appendChild(tdCheck);
+          tbody.appendChild(tr);
+        });
+
+        table.appendChild(tbody);
+        container.appendChild(table);
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>
