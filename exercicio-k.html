@@ -113,6 +113,11 @@
       ]
     };
 
+    const horariosDisponiveis = [
+      "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00",
+      "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"
+    ];
+
     const container = document.getElementById("treino");
 
     // Carregar estado salvo
@@ -120,20 +125,26 @@
 
     function render() {
       container.innerHTML = "";
-      Object.keys(treinoSemana).forEach((dia, i) => {
+      Object.keys(treinoSemana).forEach((dia) => {
         const h2 = document.createElement("h2");
         h2.textContent = dia;
         container.appendChild(h2);
 
         const table = document.createElement("table");
         const thead = document.createElement("thead");
-        thead.innerHTML = "<tr><th>Exercício</th><th>Feito</th></tr>";
+        thead.innerHTML = "<tr><th>Horário</th><th>Exercício</th><th>Feito</th></tr>";
         table.appendChild(thead);
 
         const tbody = document.createElement("tbody");
 
         treinoSemana[dia].forEach((ex, j) => {
           const tr = document.createElement("tr");
+
+          // Escolhe horário baseado na posição (cíclico se precisar)
+          const horario = horariosDisponiveis[j % horariosDisponiveis.length];
+
+          const tdHora = document.createElement("td");
+          tdHora.textContent = horario;
 
           const tdEx = document.createElement("td");
           tdEx.textContent = ex;
@@ -151,6 +162,7 @@
           });
 
           tdCheck.appendChild(checkbox);
+          tr.appendChild(tdHora);
           tr.appendChild(tdEx);
           tr.appendChild(tdCheck);
           tbody.appendChild(tr);
