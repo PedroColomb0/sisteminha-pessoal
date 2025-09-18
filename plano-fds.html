@@ -1,202 +1,220 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <title>plano-fds - Plano de Estudos</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <style>
-        :root {
-            --bg: #f4f7f9;
-            --card: #fff;
-            --accent: #3498db;
-            --muted: #e0e0e0;
-            --text: #333;
-            --heading: #2c3e50;
-        }
+  <meta charset="UTF-8" />
+  <title>Plano FDS - Cronograma de Estudos</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f4f7f9;
+      --card: #fff;
+      --accent: #3498db;
+      --muted: #e0e0e0;
+      --text: #333;
+      --heading: #2c3e50;
+    }
 
-        * { box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            padding: 24px;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 24px;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            background-color: var(--card);
-            padding: 28px;
-            border-radius: 10px;
-            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
-        }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: var(--card);
+      padding: 28px;
+      border-radius: 10px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+    }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 18px;
-        }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
 
-        h1 {
-            margin: 0;
-            font-size: 1.6rem;
-            color: var(--heading);
-        }
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--heading);
+    }
 
-        .tabs {
-            display: flex;
-            border-bottom: 2px solid var(--muted);
-            margin-bottom: 20px;
-        }
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid var(--muted);
+      margin-bottom: 20px;
+    }
 
-        .tab-btn {
-            padding: 10px 18px;
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-weight: 600;
-            color: #555;
-            transition: 0.2s;
-        }
+    .tab-btn {
+      padding: 10px 18px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-weight: 600;
+      color: #555;
+      transition: 0.2s;
+    }
 
-        .tab-btn.active {
-            border-bottom: 3px solid var(--accent);
-            color: var(--accent);
-        }
+    .tab-btn.active {
+      border-bottom: 3px solid var(--accent);
+      color: var(--accent);
+    }
 
-        .tab-content {
-            display: none;
-        }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
 
-        .tab-content.active {
-            display: block;
-        }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 18px;
-        }
+    thead th {
+      text-align: left;
+      padding: 12px 14px;
+      background: #ecf4fb;
+      color: #244a6b;
+      border-bottom: 1px solid var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
 
-        thead th {
-            text-align: left;
-            padding: 12px 14px;
-            background: #ecf4fb;
-            color: #244a6b;
-            border-bottom: 1px solid var(--muted);
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      font-size: 0.98rem;
+    }
 
-        tbody td {
-            padding: 12px 14px;
-            border-bottom: 1px solid #f0f0f0;
-            vertical-align: top;
-            font-size: 0.98rem;
-        }
+    tbody tr:nth-child(even) { background: #fbfdff; }
+    tbody tr:hover { background: #eef8ff; }
 
-        tbody tr:nth-child(even) { background: #fbfdff; }
-        tbody tr:hover { background: #eef8ff; }
-
-        .duration { white-space: nowrap; width: 90px; font-weight: 600; color: #2b3b4a; }
-        .time { white-space: nowrap; width: 140px; font-weight: 700; color: #173a59; }
-        .activity { min-width: 260px; }
-        .note { color: #57636b; font-size: 0.95rem; }
-    </style>
+    .time { white-space: nowrap; width: 140px; font-weight: 700; color: #173a59; }
+    .activity { min-width: 260px; }
+    .note { color: #57636b; font-size: 0.95rem; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Plano FDS — Plano de Estudos</h1>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Plano de Estudos — Fim de Semana</h1>
+    </header>
 
-        <!-- Tabs -->
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="sabado">Sábado - 04:30</button>
-            <button class="tab-btn" data-tab="domingo">Domingo - 08:00</button>
-        </div>
-
-        <!-- Conteúdo Sábado -->
-        <div id="sabado" class="tab-content active">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="time">Horário</th>
-                        <th class="duration">Duração</th>
-                        <th class="activity">Atividade</th>
-                        <th class="note">Observação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>04:30 - 05:30</td><td>60 min</td><td>📚 Estudo - Bloco 1 (Ex: Matéria A - Teoria)</td><td>Comece com uma matéria que exija mais concentração. Sua mente está descansada após o acordar cedo.</td></tr>
-                    <tr><td>05:30 - 05:45</td><td>15 min</td><td>☕️ Pausa Curta</td><td>Alongue, beba água, pegue um café. Evite o celular.</td></tr>
-                    <tr><td>05:45 - 06:45</td><td>60 min</td><td>📚 Estudo - Bloco 2 (Ex: Matéria B - Teoria)</td><td>Alterne para outra matéria para manter o cérebro engajado.</td></tr>
-                    <tr><td>06:45 - 07:00</td><td>15 min</td><td>💧 Pausa Curta</td><td>Respire fundo, olhe pela janela.</td></tr>
-                    <tr><td>07:00 - 08:00</td><td>60 min</td><td>✍️ Estudo - Bloco 3 (Ex: Matéria A - Exercícios)</td><td>Volte para a primeira matéria, agora com foco em exercícios para fixação.</td></tr>
-                    <tr><td>08:00 - 08:30</td><td>30 min</td><td>🍽️ Café da Manhã</td><td>Refeição nutritiva; prefira comer fora da área de estudos.</td></tr>
-                    <tr><td>08:30 - 09:30</td><td>60 min</td><td>✍️ Estudo - Bloco 4 (Ex: Matéria B - Exercícios)</td><td>Pratique a segunda matéria. Resolução de problemas = revisão ativa.</td></tr>
-                    <tr><td>09:30 - 09:45</td><td>15 min</td><td>💧 Pausa Curta</td><td>Alongue, beba água.</td></tr>
-                    <tr><td>09:45 - 10:45</td><td>60 min</td><td>📚 Estudo - Bloco 5 (Ex: Matéria C - Teoria)</td><td>Introduza nova matéria ou média dificuldade.</td></tr>
-                    <tr><td>10:45 - 11:00</td><td>15 min</td><td>🧹 Preparação para Sair</td><td>Organize-se para sair de casa.</td></tr>
-                    <tr><td>11:00 - 13:00</td><td>120 min</td><td>🍽️ Almoço Fora</td><td>Almoço fora de casa; aproveite para relaxar um pouco.</td></tr>
-                    <tr><td>13:00 - 13:30</td><td>30 min</td><td>😴 Descanso/Cochilo Restaurador</td><td>Descanso leve ou cochilo para recarregar após o almoço.</td></tr>
-                    <tr><td>13:30 - 14:30</td><td>60 min</td><td>✍️ Estudo - Bloco 6 (Ex: Matéria C - Exercícios)</td><td>Pratique a matéria iniciada pela manhã.</td></tr>
-                    <tr><td>14:30 - 14:45</td><td>15 min</td><td>🏃‍♂️ Pausa Curta</td><td>Caminhe, faça polichinelos rápidos para ativar a circulação.</td></tr>
-                    <tr><td>14:45 - 15:45</td><td>60 min</td><td>🔄 Estudo - Bloco 7 (Revisão da Semana)</td><td>Revise tópicos importantes estudados na semana.</td></tr>
-                    <tr><td>15:45 - 16:00</td><td>15 min</td><td>🍎 Pausa para Lanche</td><td>Fruta ou lanche leve para manter energia.</td></tr>
-                    <tr><td>16:00 - 17:00</td><td>60 min</td><td>📝 Estudo - Bloco 8 (Resumo do Dia/Flashcards)</td><td>Crie resumos ou flashcards para consolidar o conteúdo.</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Conteúdo Domingo -->
-        <div id="domingo" class="tab-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="time">Horário</th>
-                        <th class="duration">Duração</th>
-                        <th class="activity">Atividade</th>
-                        <th class="note">Observação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>08:00 - 08:30</td><td>30 min</td><td>🍽️ Café da Manhã</td><td>Refeição nutritiva para iniciar o dia com energia.</td></tr>
-                    <tr><td>08:30 - 09:30</td><td>60 min</td><td>📚 Estudo - Bloco 1 (Ex: Matéria E - Teoria/Leitura Leve)</td><td>Comece com algo leve para aquecer o cérebro após o acordar.</td></tr>
-                    <tr><td>09:30 - 09:45</td><td>15 min</td><td>💧 Pausa Curta</td><td>Alongue o pescoço e as costas.</td></tr>
-                    <tr><td>09:45 - 10:45</td><td>60 min</td><td>🔄 Estudo - Bloco 2 (Revisão do Sábado)</td><td>Revise os resumos ou exercícios de sábado para reforçar.</td></tr>
-                    <tr><td>10:45 - 11:00</td><td>15 min</td><td>☕️ Pausa Curta</td><td>Respire e prepare-se para o próximo bloco.</td></tr>
-                    <tr><td>11:00 - 12:00</td><td>60 min</td><td>📚 Estudo - Bloco 3 (Foco em Dificuldades)</td><td>Pegue a matéria ou tópico que você tem mais dificuldade.</td></tr>
-                    <tr><td>12:00 - 12:30</td><td>30 min</td><td>🥪 Pausa para Lanche</td><td>Lanche leve para manter energia.</td></tr>
-                    <tr><td>12:30 - 13:30</td><td>60 min</td><td>✍️ Estudo - Bloco 4 (Exercícios Gerais/Simulado)</td><td>Faça lista de exercícios variados ou mini simulado cronometrado.</td></tr>
-                    <tr><td>13:30 - 13:45</td><td>15 min</td><td>💧 Pausa Curta</td><td>Alongue, beba água.</td></tr>
-                    <tr><td>13:45 - 14:45</td><td>60 min</td><td>📚 Estudo - Bloco 5 (Ex: Matéria D - Leitura/Teoria)</td><td>Matéria mais leve ou de interesse pessoal para este horário.</td></tr>
-                    <tr><td>14:45 - 15:15</td><td>30 min</td><td>🍽️ Almoço</td><td>Refeição nutritiva; prefira comer fora da área de estudos.</td></tr>
-                    <tr><td>15:15 - 15:45</td><td>30 min</td><td>😴 Descanso/Cochilo Restaurador</td><td>Descanso leve ou cochilo para recarregar após o almoço.</td></tr>
-                    <tr><td>15:45 - 16:45</td><td>60 min</td><td>✍️ Estudo - Bloco 6 (Correção do Simulado/Exercícios)</td><td>Corrija os exercícios e entenda cada erro.</td></tr>
-                    <tr><td>16:45 - 17:00</td><td>15 min</td><td>🏃‍♂️ Pausa Curta</td><td>Movimente-se um pouco.</td></tr>
-                    <tr><td>17:00 - 18:00</td><td>60 min</td><td>📚 Estudo - Bloco 7 (Ex: Matéria F - Teoria)</td><td>Introduza nova matéria ou tópico para variar o foco.</td></tr>
-                    <tr><td>18:00 - 18:15</td><td>15 min</td><td>💧 Pausa Curta</td><td>Alongue, beba água.</td></tr>
-                    <tr><td>18:15 - 19:15</td><td>60 min</td><td>✍️ Estudo - Bloco 8 (Resumo do Dia/Flashcards)</td><td>Crie resumos ou flashcards para consolidar o conteúdo.</td></tr>
-                    <tr><td>19:15 - 19:30</td><td>15 min</td><td>🍎 Pausa Curta</td><td>Fruta ou lanche leve para manter energia.</td></tr>
-                    <tr><td>19:30 - 20:00</td><td>30 min</td><td>📅 Finalização e Planejamento da Semana</td><td>Organize materiais, revise o fim de semana e planeje as metas.</td></tr>
-                </tbody>
-            </table>
-        </div>
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="sexta">📅 Sexta</button>
+      <button class="tab-btn" data-tab="sabado">📅 Sábado</button>
+      <button class="tab-btn" data-tab="domingo">📅 Domingo</button>
     </div>
 
-    <script>
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.tab).classList.add('active');
-            });
-        });
-    </script>
+    <!-- Sexta -->
+    <div id="sexta" class="tab-content active">
+      <table>
+        <thead>
+          <tr>
+            <th class="time">Horário</th>
+            <th class="activity">Atividade</th>
+            <th class="note">Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>20:00 - 20:25</td><td>📚 Estudo — Apresentação + Introdução (parte 1)</td><td>Começo leve, aquecimento.</td></tr>
+          <tr><td>20:25 - 20:30</td><td>☕ Pausa rápida</td><td>Água/alongar.</td></tr>
+          <tr><td>20:30 - 20:55</td><td>📚 Estudo — Introdução (final)</td><td>Fechamento do módulo.</td></tr>
+          <tr><td>21:00 - 21:25</td><td>📚 Estudo — Conceitos Básicos (parte 1)</td><td>Primeiro bloco mais denso.</td></tr>
+          <tr><td>21:30 - 21:55</td><td>📚 Estudo — Conceitos Básicos (parte 2)</td><td>Continuação.</td></tr>
+          <tr><td>21:55 - 22:15</td><td>🏃 Pausa maior</td><td>Caminhada/alongar.</td></tr>
+          <tr><td>22:15 - 22:40</td><td>📚 Estudo — Conceitos Básicos (final)</td><td>Encerrando fundamentos.</td></tr>
+          <tr><td>22:45 - 23:10</td><td>📚 Estudo — Hooks</td><td>Curto e objetivo.</td></tr>
+          <tr><td>23:10 - 23:00</td><td>✅ Encerramento</td><td>Revisão rápida, relaxar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Sábado -->
+    <div id="sabado" class="tab-content">
+      <table>
+        <thead>
+          <tr>
+            <th class="time">Horário</th>
+            <th class="activity">Atividade</th>
+            <th class="note">Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>09:00 - 09:25</td><td>📚 Estudo — Rotas</td><td>Início do dia, foco total.</td></tr>
+          <tr><td>09:30 - 09:55</td><td>📚 Estudo — Redux (parte 1)</td><td>Primeiro bloco Redux.</td></tr>
+          <tr><td>10:00 - 10:25</td><td>📚 Estudo — Redux (parte 2)</td><td>Finalizando Redux.</td></tr>
+          <tr><td>10:25 - 10:45</td><td>🏃 Pausa maior</td><td>Caminhada.</td></tr>
+          <tr><td>10:45 - 11:10</td><td>📚 Estudo — Validações (parte 1)</td><td>Formulários.</td></tr>
+          <tr><td>11:15 - 11:40</td><td>📚 Estudo — Validações (parte 2)</td><td>Final do módulo.</td></tr>
+          <tr><td>11:45 - 12:00</td><td>📚 Estudo — Deploy</td><td>Fechamento do React.</td></tr>
+          <tr><td>12:00 - 12:20</td><td>🍴 Pausa maior</td><td>Café/almoço leve.</td></tr>
+          <tr><td>12:20 - 12:45</td><td>📚 Estudo — Next.js Introdução</td><td>Nova etapa.</td></tr>
+          <tr><td>12:50 - 13:15</td><td>📚 Estudo — Páginas e Navegação (parte 1)</td><td>Início prático.</td></tr>
+          <tr><td>13:15 - 14:15</td><td>🍽️ Almoço</td><td>Relaxar, caminhar.</td></tr>
+          <tr><td>14:15 - 14:40</td><td>📚 Estudo — Páginas e Navegação (parte 2)</td><td>Continuação.</td></tr>
+          <tr><td>14:45 - 15:10</td><td>📚 Estudo — Estilização</td><td>CSS e UI.</td></tr>
+          <tr><td>15:10 - 16:10</td><td>😴 Cochilo</td><td>Descanso estratégico.</td></tr>
+          <tr><td>16:10 - 16:35</td><td>📚 Estudo — Fetch/Server Actions (parte 1)</td><td>Primeiro bloco fetch.</td></tr>
+          <tr><td>16:40 - 17:05</td><td>📚 Estudo — Fetch/Server Actions (parte 2)</td><td>Continuação.</td></tr>
+          <tr><td>17:25 - 17:50</td><td>📚 Estudo — Fetch/Server Actions (parte 3)</td><td>Prática.</td></tr>
+          <tr><td>17:55 - 18:20</td><td>📚 Estudo — Fetch/Server Actions (parte 4)</td><td>Finalização.</td></tr>
+          <tr><td>18:20 - 18:40</td><td>✅ Encerramento</td><td>Revisão do dia.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Domingo -->
+    <div id="domingo" class="tab-content">
+      <table>
+        <thead>
+          <tr>
+            <th class="time">Horário</th>
+            <th class="activity">Atividade</th>
+            <th class="note">Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>09:00 - 09:25</td><td>📚 Estudo — Cache</td><td>Conceito inicial.</td></tr>
+          <tr><td>09:30 - 09:55</td><td>📚 Estudo — Autenticação (parte 1)</td><td>NextAuth.</td></tr>
+          <tr><td>10:00 - 10:25</td><td>📚 Estudo — Autenticação (parte 2)</td><td>Final.</td></tr>
+          <tr><td>10:25 - 10:45</td><td>🏃 Pausa maior</td><td>Caminhada.</td></tr>
+          <tr><td>10:45 - 11:10</td><td>📚 Estudo — NextGram (parte 1)</td><td>Projeto prático.</td></tr>
+          <tr><td>11:15 - 11:40</td><td>📚 Estudo — NextGram (parte 2)</td><td>Continuação.</td></tr>
+          <tr><td>11:45 - 12:10</td><td>📚 Estudo — NextGram (parte 3)</td><td>Mais prática.</td></tr>
+          <tr><td>12:10 - 12:30</td><td>☕ Pausa maior</td><td>Lanche leve.</td></tr>
+          <tr><td>12:30 - 12:55</td><td>📚 Estudo — NextGram (parte 4)</td><td>Prática extra.</td></tr>
+          <tr><td>13:00 - 13:25</td><td>📚 Estudo — NextGram (parte 5)</td><td>Continuação.</td></tr>
+          <tr><td>13:25 - 14:25</td><td>🍽️ Almoço</td><td>Relaxar.</td></tr>
+          <tr><td>14:25 - 14:50</td><td>📚 Estudo — NextGram (parte 6)</td><td>Último bloco grande.</td></tr>
+          <tr><td>14:55 - 15:20</td><td>📚 Estudo — NextGram (parte 7)</td><td>Fechando projeto.</td></tr>
+          <tr><td>15:20 - 16:20</td><td>😴 Cochilo</td><td>Descanso.</td></tr>
+          <tr><td>16:20 - 16:45</td><td>📚 Estudo — Conclusão NextGram + Final</td><td>Encerrando.</td></tr>
+          <tr><td>17:05 - 17:30</td><td>📚 Estudo — Bônus React (parte 1)</td><td>Conteúdo extra.</td></tr>
+          <tr><td>17:35 - 18:00</td><td>📚 Estudo — Bônus React (parte 2)</td><td>Final do curso.</td></tr>
+          <tr><td>18:00 - 18:20</td><td>✅ Revisão final</td><td>Resumo e anotações.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
