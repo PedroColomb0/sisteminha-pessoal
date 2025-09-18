@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Plano FDS - Cronograma de Estudos</title>
+  <title>Plano FDS - Cronograma de Estudos Ajustado</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
     :root {
@@ -12,6 +12,7 @@
       --muted: #e0e0e0;
       --text: #333;
       --heading: #2c3e50;
+      --break-bg: #fdfde2;
     }
 
     * { box-sizing: border-box; }
@@ -99,22 +100,21 @@
     .time { white-space: nowrap; width: 140px; font-weight: 700; color: #173a59; }
     .activity { min-width: 260px; }
     .note { color: #57636b; font-size: 0.95rem; }
+    .break-row { background-color: var(--break-bg) !important; font-style: italic; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Plano de Estudos — Fim de Semana</h1>
+      <h1>Plano de Estudos — Fim de Semana (Ajustado)</h1>
     </header>
 
-    <!-- Tabs -->
     <div class="tabs">
       <button class="tab-btn active" data-tab="sexta">📅 Sexta</button>
       <button class="tab-btn" data-tab="sabado">📅 Sábado</button>
       <button class="tab-btn" data-tab="domingo">📅 Domingo</button>
     </div>
 
-    <!-- Sexta -->
     <div id="sexta" class="tab-content active">
       <table>
         <thead>
@@ -125,20 +125,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>20:00 - 20:25</td><td>📚 Estudo — Apresentação + Introdução (parte 1)</td><td>Começo leve, aquecimento.</td></tr>
-          <tr><td>20:25 - 20:30</td><td>☕ Pausa rápida</td><td>Água/alongar.</td></tr>
-          <tr><td>20:30 - 20:55</td><td>📚 Estudo — Introdução (final)</td><td>Fechamento do módulo.</td></tr>
-          <tr><td>21:00 - 21:25</td><td>📚 Estudo — Conceitos Básicos (parte 1)</td><td>Primeiro bloco mais denso.</td></tr>
-          <tr><td>21:30 - 21:55</td><td>📚 Estudo — Conceitos Básicos (parte 2)</td><td>Continuação.</td></tr>
-          <tr><td>21:55 - 22:15</td><td>🏃 Pausa maior</td><td>Caminhada/alongar.</td></tr>
-          <tr><td>22:15 - 22:40</td><td>📚 Estudo — Conceitos Básicos (final)</td><td>Encerrando fundamentos.</td></tr>
-          <tr><td>22:45 - 23:10</td><td>📚 Estudo — Hooks</td><td>Curto e objetivo.</td></tr>
-          <tr><td>23:10 - 23:00</td><td>✅ Encerramento</td><td>Revisão rápida, relaxar.</td></tr>
+          <tr><td>20:00 - 20:50</td><td>📚 Estudo — Apresentação + Introdução</td><td>Assistir ao vídeo e codificar exemplos iniciais.</td></tr>
+          <tr class="break-row"><td>20:50 - 21:00</td><td>☕ Pausa</td><td>Pegar água, alongar.</td></tr>
+          <tr><td>21:00 - 21:50</td><td>📚 Estudo — Conceitos Básicos (Parte 1)</td><td>Focar em entender e testar no VS Code.</td></tr>
+          <tr class="break-row"><td>21:50 - 22:00</td><td>☕ Pausa</td><td>Respirar um pouco.</td></tr>
+          <tr><td>22:00 - 22:50</td><td>📚 Estudo — Conceitos Básicos (Parte 2)</td><td>Finalizar o módulo e fazer pequenos testes.</td></tr>
+          <tr class="break-row"><td>22:50 - 23:00</td><td>✅ Encerramento</td><td>Revisão rápida do que foi visto.</td></tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Sábado -->
     <div id="sabado" class="tab-content">
       <table>
         <thead>
@@ -149,30 +145,30 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>09:00 - 09:25</td><td>📚 Estudo — Rotas</td><td>Início do dia, foco total.</td></tr>
-          <tr><td>09:30 - 09:55</td><td>📚 Estudo — Redux (parte 1)</td><td>Primeiro bloco Redux.</td></tr>
-          <tr><td>10:00 - 10:25</td><td>📚 Estudo — Redux (parte 2)</td><td>Finalizando Redux.</td></tr>
-          <tr><td>10:25 - 10:45</td><td>🏃 Pausa maior</td><td>Caminhada.</td></tr>
-          <tr><td>10:45 - 11:10</td><td>📚 Estudo — Validações (parte 1)</td><td>Formulários.</td></tr>
-          <tr><td>11:15 - 11:40</td><td>📚 Estudo — Validações (parte 2)</td><td>Final do módulo.</td></tr>
-          <tr><td>11:45 - 12:00</td><td>📚 Estudo — Deploy</td><td>Fechamento do React.</td></tr>
-          <tr><td>12:00 - 12:20</td><td>🍴 Pausa maior</td><td>Café/almoço leve.</td></tr>
-          <tr><td>12:20 - 12:45</td><td>📚 Estudo — Next.js Introdução</td><td>Nova etapa.</td></tr>
-          <tr><td>12:50 - 13:15</td><td>📚 Estudo — Páginas e Navegação (parte 1)</td><td>Início prático.</td></tr>
-          <tr><td>13:15 - 14:15</td><td>🍽️ Almoço</td><td>Relaxar, caminhar.</td></tr>
-          <tr><td>14:15 - 14:40</td><td>📚 Estudo — Páginas e Navegação (parte 2)</td><td>Continuação.</td></tr>
-          <tr><td>14:45 - 15:10</td><td>📚 Estudo — Estilização</td><td>CSS e UI.</td></tr>
-          <tr><td>15:10 - 16:10</td><td>😴 Cochilo</td><td>Descanso estratégico.</td></tr>
-          <tr><td>16:10 - 16:35</td><td>📚 Estudo — Fetch/Server Actions (parte 1)</td><td>Primeiro bloco fetch.</td></tr>
-          <tr><td>16:40 - 17:05</td><td>📚 Estudo — Fetch/Server Actions (parte 2)</td><td>Continuação.</td></tr>
-          <tr><td>17:25 - 17:50</td><td>📚 Estudo — Fetch/Server Actions (parte 3)</td><td>Prática.</td></tr>
-          <tr><td>17:55 - 18:20</td><td>📚 Estudo — Fetch/Server Actions (parte 4)</td><td>Finalização.</td></tr>
-          <tr><td>18:20 - 18:40</td><td>✅ Encerramento</td><td>Revisão do dia.</td></tr>
+          <tr><td>09:00 - 09:50</td><td>📚 Estudo — Hooks + Rotas</td><td>Assistir e testar a implementação no código.</td></tr>
+          <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa</td><td>Café e alongamento.</td></tr>
+          <tr><td>10:00 - 10:50</td><td>📚 Estudo — Redux (Parte 1)</td><td>Codificar junto com o vídeo para entender a estrutura.</td></tr>
+          <tr class="break-row"><td>10:50 - 11:00</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
+          <tr><td>11:00 - 11:50</td><td>💻 Prática — Redux (Parte 2)</td><td>Testar estado, actions e reducers na prática.</td></tr>
+          <tr class="break-row"><td>12:00 - 13:30</td><td>🍽️ Almoço + Descanso</td><td>Pausa de 1h30 para recarregar as energias.</td></tr>
+          <tr><td>13:30 - 14:20</td><td>📚 Estudo — Validações de Formulário</td><td>Implementar as validações em um exemplo prático.</td></tr>
+          <tr class="break-row"><td>14:20 - 14:30</td><td>☕ Pausa</td><td>Respirar.</td></tr>
+          <tr><td>14:30 - 15:20</td><td>📚 Estudo — Deploy + Next.js Introdução</td><td>Assistir ao vídeo para ter uma visão geral.</td></tr>
+          <tr class="break-row"><td>15:20 - 15:30</td><td>☕ Pausa</td><td>Alongar.</td></tr>
+          <tr><td>15:30 - 16:20</td><td>📚 Estudo — Páginas e Navegação (Parte 1)</td><td>Codificar junto com o vídeo.</td></tr>
+          <tr class="break-row"><td>16:20 - 17:20</td><td>😴 Cochilo Estratégico</td><td>Descanso de 1 hora para restaurar a mente.</td></tr>
+          <tr><td>17:20 - 18:10</td><td>💻 Prática — Páginas e Navegação (Parte 2)</td><td>Aplicar o conhecimento com prática extra.</td></tr>
+          <tr class="break-row"><td>18:10 - 18:20</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
+          <tr><td>18:20 - 19:10</td><td>💻 Prática — Estilização no Next.js</td><td>Testar CSS Modules ou Tailwind.</td></tr>
+          <tr class="break-row"><td>19:10 - 20:10</td><td>🌙 Jantar</td><td>Pausa de 1 hora.</td></tr>
+          <tr><td>20:10 - 21:00</td><td>📚 Estudo — Fetch/Server Actions (Parte 1)</td><td>Codificar junto com o vídeo.</td></tr>
+          <tr class="break-row"><td>21:00 - 21:10</td><td>☕ Pausa</td><td>Respirar.</td></tr>
+          <tr><td>21:10 - 22:00</td><td>💻 Prática — Fetch/Server Actions (Parte 2)</td><td>Aplicar os conceitos e testar.</td></tr>
+          <tr><td>22:00 - 22:40</td><td>✅ Revisão do Dia</td><td>Anotar pontos-chave e dúvidas.</td></tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Domingo -->
     <div id="domingo" class="tab-content">
       <table>
         <thead>
@@ -183,24 +179,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>09:00 - 09:25</td><td>📚 Estudo — Cache</td><td>Conceito inicial.</td></tr>
-          <tr><td>09:30 - 09:55</td><td>📚 Estudo — Autenticação (parte 1)</td><td>NextAuth.</td></tr>
-          <tr><td>10:00 - 10:25</td><td>📚 Estudo — Autenticação (parte 2)</td><td>Final.</td></tr>
-          <tr><td>10:25 - 10:45</td><td>🏃 Pausa maior</td><td>Caminhada.</td></tr>
-          <tr><td>10:45 - 11:10</td><td>📚 Estudo — NextGram (parte 1)</td><td>Projeto prático.</td></tr>
-          <tr><td>11:15 - 11:40</td><td>📚 Estudo — NextGram (parte 2)</td><td>Continuação.</td></tr>
-          <tr><td>11:45 - 12:10</td><td>📚 Estudo — NextGram (parte 3)</td><td>Mais prática.</td></tr>
-          <tr><td>12:10 - 12:30</td><td>☕ Pausa maior</td><td>Lanche leve.</td></tr>
-          <tr><td>12:30 - 12:55</td><td>📚 Estudo — NextGram (parte 4)</td><td>Prática extra.</td></tr>
-          <tr><td>13:00 - 13:25</td><td>📚 Estudo — NextGram (parte 5)</td><td>Continuação.</td></tr>
-          <tr><td>13:25 - 14:25</td><td>🍽️ Almoço</td><td>Relaxar.</td></tr>
-          <tr><td>14:25 - 14:50</td><td>📚 Estudo — NextGram (parte 6)</td><td>Último bloco grande.</td></tr>
-          <tr><td>14:55 - 15:20</td><td>📚 Estudo — NextGram (parte 7)</td><td>Fechando projeto.</td></tr>
-          <tr><td>15:20 - 16:20</td><td>😴 Cochilo</td><td>Descanso.</td></tr>
-          <tr><td>16:20 - 16:45</td><td>📚 Estudo — Conclusão NextGram + Final</td><td>Encerrando.</td></tr>
-          <tr><td>17:05 - 17:30</td><td>📚 Estudo — Bônus React (parte 1)</td><td>Conteúdo extra.</td></tr>
-          <tr><td>17:35 - 18:00</td><td>📚 Estudo — Bônus React (parte 2)</td><td>Final do curso.</td></tr>
-          <tr><td>18:00 - 18:20</td><td>✅ Revisão final</td><td>Resumo e anotações.</td></tr>
+          <tr><td>09:00 - 09:50</td><td>📚 Estudo — Cache no Next.js</td><td>Ver vídeo e testar com exemplos.</td></tr>
+          <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa</td><td>Café.</td></tr>
+          <tr><td>10:00 - 10:50</td><td>📚 Estudo — Autenticação com NextAuth</td><td>Codificar um login simples junto com o vídeo.</td></tr>
+          <tr class="break-row"><td>10:50 - 11:00</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
+          <tr><td>11:00 - 11:50</td><td>🚀 Projeto — NextGram (Setup)</td><td>Início do projeto, configuração inicial.</td></tr>
+          <tr class="break-row"><td>12:00 - 13:30</td><td>🍽️ Almoço + Descanso</td><td>Pausa de 1h30.</td></tr>
+          <tr><td>13:30 - 14:20</td><td>🚀 Projeto — NextGram (Parte 2)</td><td>Implementar o feed de postagens.</td></tr>
+          <tr class="break-row"><td>14:20 - 14:30</td><td>☕ Pausa</td><td>Respirar.</td></tr>
+          <tr><td>14:30 - 15:20</td><td>🚀 Projeto — NextGram (Parte 3)</td><td>Implementar upload e fazer testes.</td></tr>
+          <tr class="break-row"><td>15:20 - 16:20</td><td>😴 Cochilo Estratégico</td><td>Descanso de 1 hora.</td></tr>
+          <tr><td>16:20 - 17:10</td><td>🚀 Projeto — NextGram (Parte 4)</td><td>Fazer ajustes de layout e testar funcionalidades.</td></tr>
+          <tr class="break-row"><td>17:10 - 17:20</td><td>☕ Pausa</td><td>Alongar.</td></tr>
+          <tr><td>17:20 - 18:10</td><td>🚀 Projeto — NextGram (Conclusão)</td><td>Implementar funcionalidades finais e testar tudo.</td></tr>
+          <tr class="break-row"><td>18:10 - 19:10</td><td>🌙 Jantar</td><td>Pausa de 1 hora.</td></tr>
+          <tr><td>19:10 - 20:00</td><td>📚 Estudo — Bônus React (Parte 1)</td><td>Assistir ao vídeo e praticar o conteúdo extra.</td></tr>
+          <tr class="break-row"><td>20:00 - 20:10</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
+          <tr><td>20:10 - 21:00</td><td>📚 Estudo — Bônus React (Parte 2)</td><td>Finalizar o módulo bônus.</td></tr>
+          <tr><td>21:00 - 21:30</td><td>✅ Revisão Final do Curso</td><td>Anotações finais e checklist do que foi aprendido.</td></tr>
         </tbody>
       </table>
     </div>
