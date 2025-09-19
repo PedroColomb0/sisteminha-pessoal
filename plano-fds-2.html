@@ -114,40 +114,15 @@
 <body>
   <div class="container">
     <header>
-      <h1>Plano de Estudos — Fim de Semana</h1>
+      <h1>Plano de Estudos — Fim de Semana Superintensivo</h1>
     </header>
 
     <div class="tabs">
-      <button class="tab-btn active" data-tab="sexta">📅 Sexta</button>
-      <button class="tab-btn" data-tab="sabado">📅 Sábado</button>
+      <button class="tab-btn active" data-tab="sabado">📅 Sábado</button>
       <button class="tab-btn" data-tab="domingo">📅 Domingo</button>
     </div>
 
-    <div id="sexta" class="tab-content active">
-        <table>
-          <thead>
-            <tr>
-              <th class="time">Horário</th>
-              <th class="activity">Atividade (Módulos de JS/ES6+)</th>
-              <th class="note">Foco</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>19:00 - 19:50</td><td>📚 Estudo — Funções, Arrays e Manipulação</td><td>Entender a base de manipulação de dados.</td></tr>
-            <tr class="break-row"><td>19:50 - 20:00</td><td>☕ Pausa</td><td>Pegar água, alongar.</td></tr>
-            <tr><td>20:00 - 20:50</td><td>📚 Estudo — ES6+: var/let/const, Strings, Desconstrução</td><td>Focar nas novas sintaxes do JS moderno.</td></tr>
-          </tbody>
-        </table>
-        <div class="summary-box">
-            <h3>Resumo da Sexta</h3>
-            <p><strong>Meta:</strong> Iniciar a revisão de JavaScript com foco nos fundamentos.</p>
-            <p><strong>Tempo de Estudo:</strong> 1 hora e 40 minutos</p>
-            <p><strong>Tempo de Descanso:</strong> 10 minutos</p>
-            <p><strong>Período Total:</strong> 1 hora e 50 minutos</p>
-        </div>
-      </div>
-
-    <div id="sabado" class="tab-content">
+    <div id="sabado" class="tab-content active">
       <table>
         <thead>
           <tr>
@@ -157,35 +132,33 @@
           </tr>
         </thead>
         <tbody>
-            <tr><td>09:00 - 09:50</td><td>📚 Estudo JS — ES6+: Spread, Rest, Arrays, Funções Anônimas</td><td>Essencial para o React.</td></tr>
-            <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
-            <tr><td>10:00 - 10:50</td><td>📚 Estudo JS — ES6+: Classes, some/every, Includes</td><td>Finalizar a base de JS.</td></tr>
-            <tr class="break-row"><td>10:50 - 11:00</td><td>☕ Pausa</td><td>Preparar para React.</td></tr>
-            <tr><td>11:00 - 11:50</td><td>📚 Estudo React — Apresentação e Ambiente</td><td>Configurar tudo.</td></tr>
-            <tr class="break-row"><td>11:50 - 12:20</td><td>🍽️ Almoço</td><td>Pausa de 30 minutos.</td></tr>
-            <tr><td>12:20 - 13:10</td><td>📚 Estudo React — Conceitos Básicos e Sintaxe (Parte 1)</td><td>Entender JSX e componentes.</td></tr>
+            <tr><td>08:00 - 08:50</td><td>📚 Estudo JS — Funções, Arrays e Manipulação</td><td>Entender a base de manipulação de dados.</td></tr>
+            <tr class="break-row"><td>08:50 - 09:00</td><td>☕ Pausa</td><td>Pegar água, alongar.</td></tr>
+            <tr><td>09:00 - 09:50</td><td>📚 Estudo JS — ES6+: var/let/const, Strings, Desconstrução</td><td>Focar nas novas sintaxes do JS moderno.</td></tr>
+            <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa</td><td>Respirar um pouco.</td></tr>
+            <tr><td>10:00 - 10:50</td><td>📚 Estudo JS — ES6+: Spread, Rest, Arrays, Funções Anônimas</td><td>Essencial para o React. Codificar junto.</td></tr>
+            <tr class="break-row"><td>10:50 - 11:00</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
+            <tr><td>11:00 - 11:50</td><td>📚 Estudo JS — ES6+: Classes, some/every, Includes</td><td>Entender a base de OO e os novos métodos de array.</td></tr>
+            <tr class="break-row"><td>11:50 - 12:20</td><td>🍽️ Almoço</td><td>Pausa de 30 minutos para almoçar.</td></tr>
+            <tr><td>12:20 - 13:10</td><td>📚 Estudo React — Apresentação e Preparação do Ambiente</td><td>Configurar tudo para não ter problemas depois.</td></tr>
             <tr class="break-row"><td>13:10 - 13:20</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
-            <tr><td>13:20 - 14:10</td><td>💻 Prática React — Conceitos Básicos e Sintaxe (Parte 2)</td><td>Construir componentes e testar estados.</td></tr>
+            <tr><td>13:20 - 14:10</td><td>📚 Estudo React — Conceitos Básicos e Sintaxe (Parte 1 e 2)</td><td>Entender JSX, componentes, props e state.</td></tr>
             <tr class="break-row"><td>14:10 - 14:20</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
-            <tr><td>14:20 - 15:10</td><td>📚 Estudo React — Requisições HTTP / Ajax</td><td>Aprender a buscar dados de uma API.</td></tr>
+            <tr><td>14:20 - 15:10</td><td>📚 Estudo React — Requisições HTTP / Ajax e React Hooks</td><td>Aprender a buscar dados e usar useState/useEffect.</td></tr>
             <tr class="sleep-row"><td>15:10 - 16:10</td><td>💤 Descanso Longo</td><td>Pausa de 1 hora para descansar/cochilar.</td></tr>
-            <tr><td>16:10 - 17:00</td><td>📚 Estudo React — React Hooks</td><td>Foco em useState e useEffect.</td></tr>
+            <tr><td>16:10 - 17:00</td><td>📚 Estudo React — Usando Rotas</td><td>Entender como funciona a navegação em SPAs.</td></tr>
             <tr class="break-row"><td>17:00 - 17:10</td><td>☕ Pausa</td><td>Alongar.</td></tr>
-            <tr><td>17:10 - 18:00</td><td>📚 Estudo React — Usando Rotas</td><td>Entender navegação em SPAs.</td></tr>
-            <tr class="break-row"><td>18:00 - 18:10</td><td>☕ Pausa</td><td>Respirar.</td></tr>
-            <tr><td>18:10 - 19:00</td><td>📚 Estudo React — Redux (Parte 1)</td><td>Entender a teoria: actions, reducers, store.</td></tr>
-            <tr class="break-row"><td>19:00 - 19:10</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
-            <tr><td>19:10 - 20:00</td><td>💻 Prática React — Redux (Parte 2)</td><td>Implementar um store simples.</td></tr>
-            <tr class="break-row"><td>20:00 - 20:10</td><td>☕ Pausa</td><td>Última pausa.</td></tr>
-            <tr><td>20:10 - 21:10</td><td>📚 Estudo React — Validações e Deploy</td><td>Criar formulário e aprender a publicar.</td></tr>
+            <tr><td>17:10 - 18:00</td><td>📚 Estudo React — Redux (Parte 1 e 2)</td><td>Entender a teoria e implementar um store simples.</td></tr>
+            <tr class="break-row"><td>18:00 - 18:10</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
+            <tr><td>18:10 - 19:00</td><td>📚 Estudo React — Validações de Formulário e Deploy</td><td>Criar um formulário e aprender a publicar.</td></tr>
         </tbody>
       </table>
         <div class="summary-box">
             <h3>Resumo do Sábado</h3>
-            <p><strong>Meta:</strong> Finalizar JS/ES6+ e cobrir todo o curso de React.</p>
-            <p><strong>Tempo de Estudo:</strong> 9 horas e 30 minutos</p>
+            <p><strong>Meta:</strong> Finalizar toda a base de JS/ES6+ e o módulo de React.</p>
+            <p><strong>Tempo de Estudo:</strong> 7 horas e 30 minutos</p>
             <p><strong>Tempo de Descanso:</strong> 2 horas e 30 minutos</p>
-            <p><strong>Período Total:</strong> 12 horas</p>
+            <p><strong>Período Total:</strong> 11 horas</p>
         </div>
     </div>
 
@@ -203,29 +176,28 @@
             <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa</td><td>Café.</td></tr>
             <tr><td>10:00 - 10:50</td><td>📚 Estudo — Páginas e Navegação</td><td>Criar rotas e navegar entre páginas.</td></tr>
             <tr class="break-row"><td>10:50 - 11:00</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
-            <tr><td>11:00 - 11:50</td><td>📚 Estudo — Estilização</td><td>Aplicar CSS Modules ou outra estratégia.</td></tr>
-            <tr class="break-row"><td>11:50 - 12:20</td><td>🍽️ Almoço</td><td>Pausa de 30 minutos.</td></tr>
-            <tr><td>12:20 - 13:10</td><td>📚 Estudo — Fetch e Server Actions (Parte 1)</td><td>Entender o data fetching no Next.js.</td></tr>
+            <tr><td>11:00 - 11:50</td><td>📚 Estudo — Estilização e Fetch Data (Parte 1)</td><td>Aplicar CSS e entender o data fetching.</td></tr>
+            <tr class="break-row"><td>11:50 - 12:20</td><td>🍽️ Almoço</td><td>Pausa de 30 minutos para almoçar.</td></tr>
+            <tr><td>12:20 - 13:10</td><td>💻 Prática — Fetch e Server Actions (Parte 2)</td><td>Implementar a busca de dados em uma página.</td></tr>
             <tr class="break-row"><td>13:10 - 13:20</td><td>☕ Pausa</td><td>Respirar.</td></tr>
-            <tr><td>13:20 - 14:10</td><td>💻 Prática — Fetch e Server Actions (Parte 2)</td><td>Implementar a busca de dados.</td></tr>
+            <tr><td>13:20 - 14:10</td><td>📚 Estudo — Cache e Autenticação</td><td>Entender como otimizar e proteger rotas.</td></tr>
             <tr class="sleep-row"><td>14:10 - 15:10</td><td>💤 Descanso Longo</td><td>Pausa de 1 hora para recarregar as energias.</td></tr>
-            <tr><td>15:10 - 16:00</td><td>📚 Estudo — Cache e Autenticação</td><td>Otimizar e proteger rotas.</td></tr>
+            <tr><td>15:10 - 16:00</td><td>🚀 Projeto — NextGram (Parte 1)</td><td>Estrutura inicial do projeto.</td></tr>
             <tr class="break-row"><td>16:00 - 16:10</td><td>☕ Pausa</td><td>Alongar.</td></tr>
-            <tr><td>16:10 - 17:00</td><td>🚀 Projeto — NextGram (Parte 1)</td><td>Estrutura inicial do projeto.</td></tr>
+            <tr><td>16:10 - 17:00</td><td>🚀 Projeto — NextGram (Parte 2)</td><td>Continuar a implementação.</td></tr>
             <tr class="break-row"><td>17:00 - 17:10</td><td>☕ Pausa</td><td>Descanso.</td></tr>
-            <tr><td>17:10 - 18:00</td><td>🚀 Projeto — NextGram (Parte 2)</td><td>Continuar a implementação.</td></tr>
+            <tr><td>17:10 - 18:00</td><td>🚀 Projeto — NextGram (Parte 3)</td><td>Avançar nas funcionalidades.</td></tr>
             <tr class="break-row"><td>18:00 - 18:10</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
-            <tr><td>18:10 - 19:00</td><td>🚀 Projeto — NextGram (Parte 3)</td><td>Avançar nas funcionalidades.</td></tr>
-            <tr class="break-row"><td>19:00 - 19:10</td><td>☕ Pausa</td><td>Pausa final.</td></tr>
-            <tr><td>19:10 - 20:10</td><td>📚 Estudo — Bônus de React</td><td>Revisão e conteúdo extra.</td></tr>
+            <tr><td>18:10 - 19:10</td><td>📚 Estudo — Bônus de React</td><td>Revisão e conteúdo extra.</td></tr>
         </tbody>
       </table>
         <div class="summary-box">
             <h3>Resumo do Domingo</h3>
             <p><strong>Meta:</strong> Concluir o curso de Next.js e o projeto prático.</p>
-            <p><strong>Tempo de Estudo:</strong> 8 horas e 40 minutos</p>
-            <p><strong>Tempo de Descanso:</strong> 2 horas e 30 minutos</p>
-            <p><strong>Período Total:</strong> 11 horas e 10 minutos</p>
+            <p><strong>Tempo de Estudo:</strong> 7 horas e 20 minutos</p>
+            <p><strong>Tempo de Descanso:</strong> 2 horas e 50 minutos</p>
+            <p><strong>Período Total:</strong> 10 horas e 10 minutos</p>
+            <p><strong>Atenção:</strong> O módulo "NextGram" é extenso. Fique tranquilo se não conseguir terminar tudo. O importante é entender bem cada passo.</p>
         </div>
     </div>
   </div>
@@ -233,8 +205,11 @@
   <script>
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        // Remove a classe 'active' de todos os botões e conteúdos
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        // Adiciona a classe 'active' ao botão clicado e ao conteúdo correspondente
         btn.classList.add('active');
         document.getElementById(btn.dataset.tab).classList.add('active');
       });
