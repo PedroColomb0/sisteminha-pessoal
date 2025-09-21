@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Plano FDS - Cronograma de Estudos Intensivo</title>
+  <title>Plano de Estudos - Maratona Full Stack</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
     :root {
@@ -14,6 +14,7 @@
       --heading: #2c3e50;
       --break-bg: #fffbe2;
       --sleep-bg: #e2f1ff;
+      --done-bg: #e6ffed;
     }
     * { box-sizing: border-box; }
     body {
@@ -31,22 +32,17 @@
       border-radius: 10px;
       box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
     }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-    h1 {
+    header h1 {
       margin: 0;
       font-size: 1.6rem;
       color: var(--heading);
+      margin-bottom: 18px;
     }
     .tabs {
       display: flex;
       border-bottom: 2px solid var(--muted);
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
     .tab-btn {
       padding: 10px 18px;
@@ -91,6 +87,7 @@
     .note { color: #57636b; font-size: 0.95rem; }
     .break-row { background-color: var(--break-bg) !important; font-style: italic; }
     .sleep-row { background-color: var(--sleep-bg) !important; font-weight: bold; }
+    .done-row { background-color: var(--done-bg) !important; font-weight: bold; }
     .summary-box {
         margin-top: 24px;
         padding: 16px;
@@ -114,120 +111,137 @@
 <body>
   <div class="container">
     <header>
-      <h1>Plano de Estudos — Fim de Semana</h1>
+      <h1>Plano de Estudos - Maratona JS, React & Next.js</h1>
     </header>
 
     <div class="tabs">
-      <button class="tab-btn active" data-tab="sexta">📅 Sexta</button>
-      <button class="tab-btn" data-tab="sabado">📅 Sábado</button>
-      <button class="tab-btn" data-tab="domingo">📅 Domingo</button>
+      <button class="tab-btn active" data-tab="domingo">🗓️ Domingo</button>
+      <button class="tab-btn" data-tab="segunda">🗓️ Segunda</button>
+      <button class="tab-btn" data-tab="terca">🗓️ Terça</button>
+      <button class="tab-btn" data-tab="quarta">🗓️ Quarta</button>
+      <button class="tab-btn" data-tab="quinta">🗓️ Quinta</button>
+      <button class="tab-btn" data-tab="sexta">🗓️ Sexta</button>
+      <button class="tab-btn" data-tab="sabado">🏆 Sábado (Final)</button>
     </div>
 
-    <div id="sexta" class="tab-content active">
+    <div id="domingo" class="tab-content active">
+        <h3>Arranque: JavaScript e Início de React</h3>
         <table>
           <thead>
             <tr>
               <th class="time">Horário</th>
-              <th class="activity">Atividade (Módulos de JS/ES6+)</th>
+              <th class="activity">Atividade</th>
               <th class="note">Foco</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>19:00 - 19:50</td><td>📚 Estudo — Funções, Arrays e Manipulação</td><td>Entender a base de manipulação de dados.</td></tr>
-            <tr class="break-row"><td>19:50 - 20:00</td><td>☕ Pausa</td><td>Pegar água, alongar.</td></tr>
-            <tr><td>20:00 - 20:50</td><td>📚 Estudo — ES6+: var/let/const, Strings, Desconstrução</td><td>Focar nas novas sintaxes do JS moderno.</td></tr>
+            <tr><td>10:00 - 12:50</td><td>📚 Estudo — Curso Completo de JavaScript</td><td>Concluir toda a base de JS (2h 50m). Faça pausas de 5-10 min a cada hora.</td></tr>
+            <tr class="sleep-row"><td>12:50 - 14:20</td><td>🍽️ Almoço e Descanso Longo</td><td>Pausa de 1 hora e 30 minutos para recarregar.</td></tr>
+            <tr><td>14:20 - 20:00</td><td>📚 Estudo — Início do Curso de React</td><td>Avançar o máximo possível no conteúdo de React (5h 40m de estudo).</td></tr>
           </tbody>
         </table>
         <div class="summary-box">
-            <h3>Resumo da Sexta</h3>
-            <p><strong>Meta:</strong> Iniciar a revisão de JavaScript com foco nos fundamentos.</p>
-            <p><strong>Tempo de Estudo:</strong> 1 hora e 40 minutos</p>
-            <p><strong>Tempo de Descanso:</strong> 10 minutos</p>
-            <p><strong>Período Total:</strong> 1 hora e 50 minutos</p>
+            <h3>Resumo do Domingo</h3>
+            <p><strong>Meta:</strong> Finalizar 100% do curso de JS e iniciar com força total o de React.</p>
+            <p><strong>Tempo de Estudo:</strong> 8 horas e 30 minutos</p>
+            <p><strong>Tempo de Descanso:</strong> 1 hora e 30 minutos</p>
+            <p><strong>Período Total:</strong> 10 horas</p>
+            <p><strong>Progresso:</strong> JS (100%), React (~75%)</p>
         </div>
-      </div>
+    </div>
+    
+    <div id="segunda" class="tab-content">
+        <h3>Missão: Finalizar React</h3>
+        <table>
+            <thead><tr><th class="time">Período</th><th class="activity">Atividade</th><th class="note">Foco</th></tr></thead>
+            <tbody>
+                <tr><td>2 horas de estudo</td><td>📚 Estudo — Finalização do Curso de React</td><td>Concluir os ~2h restantes do curso (Redux, Validações, Deploy).</td></tr>
+            </tbody>
+        </table>
+        <div class="summary-box">
+            <h3>Resumo da Segunda</h3>
+            <p><strong>Meta:</strong> Concluir 100% do curso de React.</p>
+            <p><strong>Tempo de Estudo:</strong> 2 horas</p>
+            <p><strong>Progresso:</strong> React (100%)</p>
+        </div>
+    </div>
+
+    <div id="terca" class="tab-content">
+        <h3>Nova Aventura: Next.js</h3>
+        <table>
+            <thead><tr><th class="time">Período</th><th class="activity">Atividade</th><th class="note">Foco</th></tr></thead>
+            <tbody>
+                <tr><td>2 horas de estudo</td><td>📚 Estudo — Início do Curso de Next.js</td><td>Introdução, Páginas, Navegação e Estilização.</td></tr>
+            </tbody>
+        </table>
+        <div class="summary-box">
+            <h3>Resumo da Terça</h3>
+            <p><strong>Meta:</strong> Entender os fundamentos do Next.js.</p>
+            <p><strong>Tempo de Estudo:</strong> 2 horas</p>
+        </div>
+    </div>
+    
+    <div id="quarta" class="tab-content">
+        <h3>Aprofundando em Next.js</h3>
+        <table>
+            <thead><tr><th class="time">Período</th><th class="activity">Atividade</th><th class="note">Foco</th></tr></thead>
+            <tbody>
+                <tr><td>2 horas de estudo</td><td>📚 Estudo — Continuação de Next.js</td><td>Fetch, Server Actions e Cache.</td></tr>
+            </tbody>
+        </table>
+        <div class="summary-box">
+            <h3>Resumo da Quarta</h3>
+            <p><strong>Meta:</strong> Dominar a busca de dados e otimizações.</p>
+            <p><strong>Tempo de Estudo:</strong> 2 horas</p>
+        </div>
+    </div>
+
+    <div id="quinta" class="tab-content">
+        <h3>Next.js: Segurança e Prática</h3>
+        <table>
+            <thead><tr><th class="time">Período</th><th class="activity">Atividade</th><th class="note">Foco</th></tr></thead>
+            <tbody>
+                <tr><td>2 horas de estudo</td><td>📚 Estudo — Continuação de Next.js</td><td>Autenticação e início do projeto prático NextGram.</td></tr>
+            </tbody>
+        </table>
+        <div class="summary-box">
+            <h3>Resumo da Quinta</h3>
+            <p><strong>Meta:</strong> Implementar segurança e começar o projeto principal.</p>
+            <p><strong>Tempo de Estudo:</strong> 2 horas</p>
+        </div>
+    </div>
+
+    <div id="sexta" class="tab-content">
+        <h3>Projeto NextGram a Todo Vapor</h3>
+        <table>
+            <thead><tr><th class="time">Período</th><th class="activity">Atividade</th><th class="note">Foco</th></tr></thead>
+            <tbody>
+                <tr><td>2 horas de estudo</td><td>🚀 Prática — Projeto NextGram</td><td>Avançar o máximo possível no desenvolvimento do projeto.</td></tr>
+            </tbody>
+        </table>
+        <div class="summary-box">
+            <h3>Resumo da Sexta</h3>
+            <p><strong>Meta:</strong> Deixar o projeto NextGram bem encaminhado para a finalização.</p>
+            <p><strong>Tempo de Estudo:</strong> 2 horas</p>
+        </div>
+    </div>
 
     <div id="sabado" class="tab-content">
-      <table>
-        <thead>
-          <tr>
-            <th class="time">Horário</th>
-            <th class="activity">Atividade (JS/ES6+ e React)</th>
-            <th class="note">Foco</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr><td>09:00 - 09:50</td><td>📚 Estudo JS — ES6+: Spread, Rest, Arrays, Funções Anônimas</td><td>Essencial para o React.</td></tr>
-            <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
-            <tr><td>10:00 - 10:50</td><td>📚 Estudo JS — ES6+: Classes, some/every, Includes</td><td>Finalizar a base de JS.</td></tr>
-            <tr class="break-row"><td>10:50 - 11:00</td><td>☕ Pausa</td><td>Preparar para React.</td></tr>
-            <tr><td>11:00 - 11:50</td><td>📚 Estudo React — Apresentação e Ambiente</td><td>Configurar tudo.</td></tr>
-            <tr class="break-row"><td>11:50 - 12:20</td><td>🍽️ Almoço</td><td>Pausa de 30 minutos.</td></tr>
-            <tr><td>12:20 - 13:10</td><td>📚 Estudo React — Conceitos Básicos e Sintaxe (Parte 1)</td><td>Entender JSX e componentes.</td></tr>
-            <tr class="break-row"><td>13:10 - 13:20</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
-            <tr><td>13:20 - 14:10</td><td>💻 Prática React — Conceitos Básicos e Sintaxe (Parte 2)</td><td>Construir componentes e testar estados.</td></tr>
-            <tr class="break-row"><td>14:10 - 14:20</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
-            <tr><td>14:20 - 15:10</td><td>📚 Estudo React — Requisições HTTP / Ajax</td><td>Aprender a buscar dados de uma API.</td></tr>
-            <tr class="sleep-row"><td>15:10 - 16:10</td><td>💤 Descanso Longo</td><td>Pausa de 1 hora para descansar/cochilar.</td></tr>
-            <tr><td>16:10 - 17:00</td><td>📚 Estudo React — React Hooks</td><td>Foco em useState e useEffect.</td></tr>
-            <tr class="break-row"><td>17:00 - 17:10</td><td>☕ Pausa</td><td>Alongar.</td></tr>
-            <tr><td>17:10 - 18:00</td><td>📚 Estudo React — Usando Rotas</td><td>Entender navegação em SPAs.</td></tr>
-            <tr class="break-row"><td>18:00 - 18:10</td><td>☕ Pausa</td><td>Respirar.</td></tr>
-            <tr><td>18:10 - 19:00</td><td>📚 Estudo React — Redux (Parte 1)</td><td>Entender a teoria: actions, reducers, store.</td></tr>
-            <tr class="break-row"><td>19:00 - 19:10</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
-            <tr><td>19:10 - 20:00</td><td>💻 Prática React — Redux (Parte 2)</td><td>Implementar um store simples.</td></tr>
-            <tr class="break-row"><td>20:00 - 20:10</td><td>☕ Pausa</td><td>Última pausa.</td></tr>
-            <tr><td>20:10 - 21:10</td><td>📚 Estudo React — Validações e Deploy</td><td>Criar formulário e aprender a publicar.</td></tr>
-        </tbody>
-      </table>
+        <h3>Reta Final e Conclusão!</h3>
+        <table>
+            <thead><tr><th class="time">Período</th><th class="activity">Atividade</th><th class="note">Foco</th></tr></thead>
+            <tbody>
+                <tr class="done-row"><td>Manhã (aprox. 2h 04m)</td><td>🚀 Estudo e Prática — Finalização de Next.js</td><td>Concluir o projeto NextGram e assistir ao módulo bônus de React.</td></tr>
+            </tbody>
+        </table>
         <div class="summary-box">
             <h3>Resumo do Sábado</h3>
-            <p><strong>Meta:</strong> Finalizar JS/ES6+ e cobrir todo o curso de React.</p>
-            <p><strong>Tempo de Estudo:</strong> 9 horas e 30 minutos</p>
-            <p><strong>Tempo de Descanso:</strong> 2 horas e 30 minutos</p>
-            <p><strong>Período Total:</strong> 12 horas</p>
+            <p><strong>Meta:</strong> <strong>CONCLUIR 100% DO PLANO DE ESTUDOS! 🎉</strong></p>
+            <p><strong>Tempo de Estudo:</strong> Aprox. 2 horas e 4 minutos</p>
+            <p><strong>Resultado:</strong> Missão Cumprida!</p>
         </div>
     </div>
 
-    <div id="domingo" class="tab-content">
-      <table>
-        <thead>
-          <tr>
-            <th class="time">Horário</th>
-            <th class="activity">Atividade (Módulo de Next.js)</th>
-            <th class="note">Foco</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr><td>09:00 - 09:50</td><td>📚 Estudo — Introdução ao Next.js</td><td>Entender os conceitos chave (SSR, SSG).</td></tr>
-            <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa</td><td>Café.</td></tr>
-            <tr><td>10:00 - 10:50</td><td>📚 Estudo — Páginas e Navegação</td><td>Criar rotas e navegar entre páginas.</td></tr>
-            <tr class="break-row"><td>10:50 - 11:00</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
-            <tr><td>11:00 - 11:50</td><td>📚 Estudo — Estilização</td><td>Aplicar CSS Modules ou outra estratégia.</td></tr>
-            <tr class="break-row"><td>11:50 - 12:20</td><td>🍽️ Almoço</td><td>Pausa de 30 minutos.</td></tr>
-            <tr><td>12:20 - 13:10</td><td>📚 Estudo — Fetch e Server Actions (Parte 1)</td><td>Entender o data fetching no Next.js.</td></tr>
-            <tr class="break-row"><td>13:10 - 13:20</td><td>☕ Pausa</td><td>Respirar.</td></tr>
-            <tr><td>13:20 - 14:10</td><td>💻 Prática — Fetch e Server Actions (Parte 2)</td><td>Implementar a busca de dados.</td></tr>
-            <tr class="sleep-row"><td>14:10 - 15:10</td><td>💤 Descanso Longo</td><td>Pausa de 1 hora para recarregar as energias.</td></tr>
-            <tr><td>15:10 - 16:00</td><td>📚 Estudo — Cache e Autenticação</td><td>Otimizar e proteger rotas.</td></tr>
-            <tr class="break-row"><td>16:00 - 16:10</td><td>☕ Pausa</td><td>Alongar.</td></tr>
-            <tr><td>16:10 - 17:00</td><td>🚀 Projeto — NextGram (Parte 1)</td><td>Estrutura inicial do projeto.</td></tr>
-            <tr class="break-row"><td>17:00 - 17:10</td><td>☕ Pausa</td><td>Descanso.</td></tr>
-            <tr><td>17:10 - 18:00</td><td>🚀 Projeto — NextGram (Parte 2)</td><td>Continuar a implementação.</td></tr>
-            <tr class="break-row"><td>18:00 - 18:10</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
-            <tr><td>18:10 - 19:00</td><td>🚀 Projeto — NextGram (Parte 3)</td><td>Avançar nas funcionalidades.</td></tr>
-            <tr class="break-row"><td>19:00 - 19:10</td><td>☕ Pausa</td><td>Pausa final.</td></tr>
-            <tr><td>19:10 - 20:10</td><td>📚 Estudo — Bônus de React</td><td>Revisão e conteúdo extra.</td></tr>
-        </tbody>
-      </table>
-        <div class="summary-box">
-            <h3>Resumo do Domingo</h3>
-            <p><strong>Meta:</strong> Concluir o curso de Next.js e o projeto prático.</p>
-            <p><strong>Tempo de Estudo:</strong> 8 horas e 40 minutos</p>
-            <p><strong>Tempo de Descanso:</strong> 2 horas e 30 minutos</p>
-            <p><strong>Período Total:</strong> 11 horas e 10 minutos</p>
-        </div>
-    </div>
   </div>
 
   <script>
