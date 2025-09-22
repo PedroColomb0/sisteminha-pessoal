@@ -2,39 +2,251 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Site</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Plano de Estudos - JS, React e Next.js</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f4f7f9;
+      --card: #fff;
+      --accent: #007acc;
+      --muted: #e0e0e0;
+      --text: #333;
+      --heading: #2c3e50;
+      --break-bg: #fffbe2;
+      --practice-bg: #e2f1ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 24px;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: var(--card);
+      padding: 28px;
+      border-radius: 10px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--heading);
+    }
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid var(--muted);
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      padding: 10px 18px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-weight: 600;
+      color: #555;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .tab-btn.active {
+      border-bottom: 3px solid var(--accent);
+      color: var(--accent);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+    }
+    thead th {
+      text-align: left;
+      padding: 12px 14px;
+      background: #ecf4fb;
+      color: #244a6b;
+      border-bottom: 1px solid var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      font-size: 0.98rem;
+    }
+    tbody tr:nth-child(even) { background: #fbfdff; }
+    tbody tr:hover { background: #eef8ff; }
+    .time { white-space: nowrap; width: 140px; font-weight: 700; color: #173a59; }
+    .activity { min-width: 260px; font-weight: 500;}
+    .note { color: #57636b; font-size: 0.95rem; }
+    .break-row { background-color: var(--break-bg) !important; font-style: italic; }
+    .practice-row { background-color: var(--practice-bg) !important; font-weight: bold; }
+    .summary-box {
+        margin-top: 24px;
+        padding: 16px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid var(--muted);
+    }
+    .summary-box h3 {
+        margin-top: 0;
+        color: var(--heading);
+        font-size: 1.1rem;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+    }
+    .summary-box p {
+        margin: 4px 0;
+    }
+  </style>
 </head>
 <body>
-  <div class="menu-toggle" onclick="toggleSidebar()">
-    <i class="fas fa-bars"></i>
-  </div>
-  
   <div class="container">
-    <aside class="sidebar" id="sidebar">
-      <h2>Menu</h2>
-      <nav>
-        <ul>
-          <li><a href="#" onclick="carregarPagina('home.html')">Home</a></li>
-          <li><a href="#" onclick="carregarPagina('cronograma.html')">Cronograma</a></li>
-          <li><a href="#" onclick="carregarPagina('dieta.html')">Dieta</a></li>
-          <li><a href="#" onclick="carregarPagina('treino.html')">Treino</a></li>
-          <li><a href="#" onclick="carregarPagina('meu-plano.html')">Meu Plano</a></li>
-          <li><a href="#" onclick="carregarPagina('plano-fds.html')">Plano Fds</a></li>
-          <li><a href="#" onclick="carregarPagina('plano-fds-2.html')">Plano Sab/Domingo</a></li>
-          <li><a href="#" onclick="carregarPagina('tutorial.html')">Tutorial</a></li>
-          <li><a href="#" onclick="carregarPagina('semana-22.html')">Semana 22</a></li>
-          <li><a href="#" onclick="carregarPagina('exercicio-k.html')">Exercicio K</a></li>
-        </ul>
-      </nav>
-    </aside>
-    <main class="conteudo">
-      <iframe id="conteudo-frame" src="home.html"></iframe>
-    </main>
+    <header>
+      <h1>Plano de Estudos Focado: JS, React e Next.js</h1>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn" data-tab="terca">📅 Terça</button>
+      <button class="tab-btn" data-tab="quarta">📅 Quarta</button>
+      <button class="tab-btn active" data-tab="sabado">📅 Sábado (Intensivo)</button>
+      <button class="tab-btn" data-tab="domingo">📅 Domingo (Prática)</button>
+    </div>
+
+    <div id="terca" class="tab-content">
+      <table>
+        <thead>
+          <tr>
+            <th class="time">Horário</th>
+            <th class="activity">Atividade</th>
+            <th class="note">Foco</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>_Início_</td><td>📚 **Curso JavaScript** (Parte 1) - 1h 25min</td><td>Concluir todo o curso de JS.</td></tr>
+          <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (10 min)</td><td>Descanso.</td></tr>
+          <tr><td>_Continuação_</td><td>📚 **Curso React** (Parte 1) - 1h 25min</td><td>Iniciar o curso de React e entender os fundamentos.</td></tr>
+        </tbody>
+      </table>
+        <div class="summary-box">
+            <h3>Resumo da Terça</h3>
+            <p><strong>Meta:</strong> Finalizar o curso de JS e começar React com força total.</p>
+            <p><strong>Tempo de Estudo:</strong> ~2 horas e 50 minutos</p>
+        </div>
+    </div>
+
+    <div id="quarta" class="tab-content">
+        <table>
+          <thead>
+            <tr>
+              <th class="time">Horário</th>
+              <th class="activity">Atividade</th>
+              <th class="note">Foco</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>_Início_</td><td>📚 **Curso React** (Final) - 1h</td><td>Concluir o curso de React.</td></tr>
+            <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (10 min)</td><td>Descanso.</td></tr>
+            <tr><td>_Continuação_</td><td>📚 **Curso Next.js** - 1h 20min</td><td>Finalizar o último curso.</td></tr>
+            <tr class="practice-row"><td>_Final_</td><td>🚀 **Revisão Geral** - 30 min</td><td>Revisar os pontos principais dos 3 cursos.</td></tr>
+          </tbody>
+        </table>
+        <div class="summary-box">
+            <h3>Resumo da Quarta</h3>
+            <p><strong>Meta:</strong> Concluir toda a parte teórica e se preparar para a prática.</p>
+            <p><strong>Tempo de Estudo:</strong> ~2 horas e 50 minutos</p>
+        </div>
+    </div>
+
+    <div id="sabado" class="tab-content active">
+      <table>
+        <thead>
+          <tr>
+            <th class="time">Horário</th>
+            <th class="activity">Atividade (Foco total nos cursos)</th>
+            <th class="note">Foco</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr><td>08:00 - 08:50</td><td>📚 **Curso JavaScript** (Parte 1)</td><td>Fundamentos, Compiladores, Operadores.</td></tr>
+            <tr class="break-row"><td>08:50 - 09:00</td><td>☕ Pausa Pomodoro</td><td>Descanso rápido.</td></tr>
+            <tr><td>09:00 - 09:35</td><td>📚 **Curso JavaScript** (Final)</td><td>Promises, ES Modules e conclusão.</td></tr>
+            <tr class="break-row"><td>09:35 - 09:50</td><td>☕ Pausa Maior</td><td>Preparar para o próximo módulo.</td></tr>
+            <tr><td>09:50 - 10:40</td><td>📚 **Curso React** (Parte 1)</td><td>O que é React, Componentes, JSX, State.</td></tr>
+            <tr class="break-row"><td>10:40 - 10:50</td><td>☕ Pausa Pomodoro</td><td>Alongar.</td></tr>
+            <tr><td>10:50 - 11:40</td><td>📚 **Curso React** (Parte 2)</td><td>Props, Listas, Condicionais, Eventos.</td></tr>
+            <tr class="break-row"><td>11:40 - 13:10</td><td>🍽️ Almoço e Descanso</td><td>Pausa de 1h 30min (conforme solicitado).</td></tr>
+            <tr><td>13:10 - 14:00</td><td>📚 **Curso React** (Final)</td><td>Router, APIs, LocalStorage e Deploy.</td></tr>
+            <tr class="break-row"><td>14:00 - 14:15</td><td>☕ Pausa Maior</td><td>Respirar fundo antes do último curso.</td></tr>
+            <tr><td>14:15 - 15:05</td><td>📚 **Curso Next.js** (Parte 1)</td><td>React vs Next, Páginas, SEO, Componentes.</td></tr>
+            <tr class="break-row"><td>15:05 - 15:15</td><td>☕ Pausa Pomodoro</td><td>Descanso.</td></tr>
+            <tr><td>15:15 - 15:45</td><td>📚 **Curso Next.js** (Final)</td><td>Rotas Dinâmicas, Cache, Middlewares.</td></tr>
+            <tr class="practice-row"><td>15:45 - 18:00</td><td>🚀 **Prática Inicial e Revisão**</td><td>Criar um projeto `create-next-app` e revisar anotações.</td></tr>
+        </tbody>
+      </table>
+        <div class="summary-box">
+            <h3>Resumo do Sábado</h3>
+            <p><strong>Meta:</strong> Concluir 100% do conteúdo em vídeo dos 3 cursos.</p>
+            <p><strong>Tempo de Estudo:</strong> 5h 50min</p>
+            <p><strong>Tempo de Descanso:</strong> 2h 40min</p>
+            <p><strong>Período Total:</strong> 8h 30min (até a prática)</p>
+        </div>
+    </div>
+
+    <div id="domingo" class="tab-content">
+      <table>
+        <thead>
+          <tr>
+            <th class="time">Horário</th>
+            <th class="activity">Atividade (Foco em Prática e Fixação)</th>
+            <th class="note">Foco</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>08:00 - 08:50</td><td>🧠 Revisão Ativa JS</td><td>Recriar exemplos de `map`, `filter`, `reduce` e Promises.</td></tr>
+          <tr class="break-row"><td>08:50 - 09:00</td><td>☕ Pausa</td><td>Café.</td></tr>
+          <tr><td>09:00 - 10:30</td><td>🚀 **Projeto Prático 1** (React)</td><td>Criar uma To-Do List com state e props.</td></tr>
+          <tr class="break-row"><td>10:30 - 10:45</td><td>☕ Pausa Maior</td><td>Descanso.</td></tr>
+          <tr><td>10:45 - 11:45</td><td>🚀 **Projeto Prático 1** (React)</td><td>Adicionar LocalStorage para salvar as tarefas.</td></tr>
+          <tr class="break-row"><td>11:45 - 13:15</td><td>🍽️ Almoço e Descanso</td><td>Pausa de 1h 30min.</td></tr>
+          <tr><td>13:15 - 14:45</td><td>🚀 **Projeto Prático 2** (Next.js)</td><td>Iniciar um blog simples com páginas estáticas.</td></tr>
+          <tr class="break-row"><td>14:45 - 15:00</td><td>☕ Pausa</td><td>Alongar.</td></tr>
+          <tr><td>15:00 - 16:30</td><td>🚀 **Projeto Prático 2** (Next.js)</td><td>Consumir uma API externa (ex: de posts falsos) para o blog.</td></tr>
+          <tr class="break-row"><td>16:30 - 16:45</td><td>☕ Pausa</td><td>Descanso.</td></tr>
+          <tr class="practice-row"><td>16:45 - 18:00</td><td>📝 Planejamento</td><td>Definir os próximos passos e projetos para a semana.</td></tr>
+        </tbody>
+      </table>
+        <div class="summary-box">
+            <h3>Resumo do Domingo</h3>
+            <p><strong>Meta:</strong> Solidificar o conhecimento através de projetos práticos.</p>
+            <p><strong>Tempo de Estudo/Prática:</strong> 6h 30min</p>
+            <p><strong>Tempo de Descanso:</strong> 2h 30min</p>
+            <p><strong>Período Total:</strong> 9h</p>
+        </div>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
