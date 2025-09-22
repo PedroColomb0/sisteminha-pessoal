@@ -7,12 +7,13 @@
   <style>
     :root {
       --bg: #f4f7f9;
-      --card: #fff;
+      --card: #ffffff;
       --accent: #007acc;
       --muted: #e0e0e0;
       --text: #333;
       --heading: #2c3e50;
       --break-bg: #fffbe2;
+      --long-break-bg: #e2f1ff;
     }
     * { box-sizing: border-box; }
     body {
@@ -30,9 +31,13 @@
       border-radius: 10px;
       box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
     }
+    h1 {
+        color: var(--heading);
+        margin-bottom: 8px;
+    }
     .tabs {
       display: flex;
-      flex-wrap: wrap; /* Permite que as abas quebrem para a linha de baixo se não couberem */
+      flex-wrap: wrap;
       border-bottom: 2px solid var(--muted);
       margin-bottom: 20px;
     }
@@ -45,10 +50,12 @@
       color: #555;
       transition: 0.2s;
       font-size: 0.95rem;
+      border-radius: 4px 4px 0 0;
     }
     .tab-btn.active {
       border-bottom: 3px solid var(--accent);
       color: var(--accent);
+      background-color: #f7f9fc;
     }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
@@ -70,14 +77,25 @@
       border-bottom: 1px solid #f0f0f0;
     }
     tbody tr:nth-child(even) { background: #fbfdff; }
-    .pomodoro { font-style: italic; color: #555; font-size: 0.9em; }
-    .break-row { background-color: var(--break-bg) !important; font-weight: bold; }
+    .pomodoro {
+        background-color: #f8f9fa;
+        text-align: center;
+        font-style: italic;
+        color: #555;
+        font-size: 0.9em;
+        padding: 10px;
+    }
+    .long-break-row {
+      background-color: var(--long-break-bg) !important;
+      font-weight: bold;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Plano de Estudos - Jornada Full-Stack</h1>
-    <p>Seu cronograma unificado para conquistar o desenvolvimento com React e Next.js, começando em <strong>23 de Setembro de 2025</strong>.</p>
+    <h1>🚀 Plano de Estudos - Jornada Full-Stack</h1>
+    <p>Seu cronograma personalizado para dominar JS, React e Next.js, começando em <strong>23 de Setembro de 2025</strong>.</p>
 
     <div class="tabs">
       <button class="tab-btn active" data-tab="ter1">Ter, 23/09</button>
@@ -86,41 +104,28 @@
       <button class="tab-btn" data-tab="sex1">Sex, 26/09</button>
       <button class="tab-btn" data-tab="sab1">Sáb, 27/09</button>
       <button class="tab-btn" data-tab="dom1">Dom, 28/09</button>
-      <button class="tab-btn" data-tab="seg2">Seg, 29/09</button>
       <button class="tab-btn" data-tab="ter2">Ter, 30/09</button>
       <button class="tab-btn" data-tab="qua2">Qua, 01/10</button>
       <button class="tab-btn" data-tab="qui2">Qui, 02/10</button>
       <button class="tab-btn" data-tab="sex2">Sex, 03/10</button>
       <button class="tab-btn" data-tab="sab2">Sáb, 04/10</button>
       <button class="tab-btn" data-tab="dom2">Dom, 05/10</button>
-      <button class="tab-btn" data-tab="seg3">Seg, 06/10</button>
-      <button class="tab-btn" data-tab="ter3">Ter, 07/10</button>
-      <button class="tab-btn" data-tab="qua3">Qua, 08/10</button>
-      <button class="tab-btn" data-tab="qui3">Qui, 09/10</button>
-      <button class="tab-btn" data-tab="sex3">Sex, 10/10</button>
     </div>
 
     <div class="content-container">
-        <div id="ter1" class="tab-content active"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>📚 Curso "Tudo que você deve estudar de JS" (1h 25m)<br/>✍️ Prática e Revisão (35m)</td><td>Concluir o curso introdutório de JS e reforçar os conceitos.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="qua1" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>📚 Módulo JS Detalhado (2h)</td><td>Iniciar o curso de 2h50, cobrindo as aulas de Funções até Funções Anônimas.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="qui1" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>📚 Finalizar Módulo JS Detalhado (50m)<br/>🚀 Iniciar "React para Iniciantes" (1h 10m)</td><td>Concluir TODO o conteúdo de JavaScript e dar os primeiros passos em React.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="sex1" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>🚀 Continuar "React para Iniciantes" (1h 15m)<br/>🚀 Iniciar Módulo React Completo (45m)</td><td>Finalizar o curso rápido de React e iniciar o módulo aprofundado.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="sab1" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade</th></tr></thead><tbody><tr><td>09:00 - 12:30</td><td>📚 Módulo React Completo (Sessão Manhã)</td></tr><tr class="break-row"><td>12:30 - 14:30</td><td>🍽️ Pausa Longa (Almoço e Descanso)</td></tr><tr><td>14:30 - 18:00</td><td>📚 Módulo React Completo (Sessão Tarde)</td></tr><tr><td colspan="2" class="pomodoro">Foco: Concluir as 7h restantes do módulo de React. Ritmo Pomodoro de 50/10 dentro das sessões.</td></tr></tbody></table></div>
-        <div id="dom1" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade</th></tr></thead><tbody><tr><td>09:00 - 13:00</td><td>📚 Cursos Introdutórios de Next.js</td></tr><tr class="break-row"><td>13:00 - 15:00</td><td>🍽️ Pausa Longa (Almoço e Descanso)</td></tr><tr><td>15:00 - 19:30</td><td>📚 Módulo "Next.js do Zero ao Avançado"</td></tr><tr><td colspan="2" class="pomodoro">Foco: Finalizar o curso "Dominando Next.js" (1h20) e avançar o máximo no curso teórico de 10h.</td></tr></tbody></table></div>
-        
-        <div id="seg2" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>📚 Módulo "Next.js do Zero ao Avançado" (2h)</td><td>Continuar avançando no conteúdo teórico de Next.js.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="ter2" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>📚 Finalizar Módulo Teórico Next.js (~1h)<br/>💻 Iniciar Curso Prático Next.js (~1h)</td><td>Finalizar TODA a teoria e começar a colocar a mão na massa com o curso prático!</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="qua2" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>💻 Curso Prático Next.js (2h)</td><td>Foco nos módulos "Começando com ReactJS" e início do "Primeiro Projeto".</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="qui2" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>💻 Curso Prático Next.js (2h)</td><td>Continuar o "Primeiro Projeto" e o módulo "Entendendo NextJS".</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="sex2" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>💻 Curso Prático Next.js (2h)</td><td>Iniciar o projeto "Board Tarefas".</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="sab2" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade</th></tr></thead><tbody><tr><td>09:00 - 12:30</td><td>💻 Curso Prático Next.js (Sessão Manhã)</td></tr><tr class="break-row"><td>12:30 - 14:30</td><td>🍽️ Pausa Longa (Almoço e Descanso)</td></tr><tr><td>14:30 - 18:00</td><td>💻 Curso Prático Next.js (Sessão Tarde)</td></tr><tr><td colspan="2" class="pomodoro">Foco: Avançar o máximo possível nos projetos "Board Tarefas" e "Evoluindo com diretório app".</td></tr></tbody></table></div>
-        <div id="dom2" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade</th></tr></thead><tbody><tr><td>09:00 - 13:00</td><td>💻 Curso Prático Next.js (Sessão Manhã)</td></tr><tr class="break-row"><td>13:00 - 15:00</td><td>🍽️ Pausa Longa (Almoço e Descanso)</td></tr><tr><td>15:00 - 19:30</td><td>💻 Curso Prático Next.js (Sessão Tarde)</td></tr><tr><td colspan="2" class="pomodoro">Foco: Mergulhar no projeto "dalygames" e iniciar o "sistema completo + CMS".</td></tr></tbody></table></div>
+        <div id="ter1" class="tab-content active"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>📚 "Tudo que você deve estudar de JS" (1h 25m)<br/>📚 "Aprenda JavaScript em 1 Video" (Início - 1h 5m)</td><td>Finalizar o 1º curso e começar o 2º para solidificar a base.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="qua1" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>📚 "Aprenda JavaScript em 1 Video" (Conclusão - 1h 10m)<br/>📚 Módulo JS Detalhado (Início - 1h 20m)</td><td>Finalizar os cursos rápidos de JS e começar o módulo aprofundado.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="qui1" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>📚 Módulo JS Detalhado (Conclusão - 1h 30m)<br/>🚀 "React para Iniciantes" (Início - 1h)</td><td><strong>Concluir 100% de JavaScript!</strong> Dar os primeiros passos com React.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="sex1" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>🚀 "React para Iniciantes" (Conclusão - 1h 25m)<br/>🚀 Módulo React Completo (Início - 1h 5m)</td><td>Finalizar a introdução a React e mergulhar no curso completo.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="sab1" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade (Imersão React e Next.js)</th></tr></thead><tbody><tr><td>09:00 - 13:00</td><td>🚀 Concluir o Módulo React Completo (Sessão Manhã)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 13:00 - 15:00: Pausa para Almoço e Descanso</td></tr><tr><td>15:00 - 20:00</td><td>🏆 <strong>React Finalizado!</strong><br/>⚡ Iniciar Next.js: "Dominando Next.js" (1h 20m)<br/>⚡ Continuar com "Next.js do Zero ao Avançado"</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: Ciclos de 50min de Foco + 10min de Pausa durante as sessões.</td></tr></tbody></table></div>
+        <div id="dom1" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade (Imersão Next.js)</th></tr></thead><tbody><tr><td>09:00 - 13:00</td><td>📚 Continuar "Next.js do Zero ao Avançado" (Sessão Manhã)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 13:00 - 15:00: Pausa para Almoço e Descanso</td></tr><tr><td>15:00 - 20:00</td><td>📚 Avançar o máximo possível em "Next.js do Zero ao Avançado" (Sessão Tarde)</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: Ciclos de 50min de Foco + 10min de Pausa durante as sessões.</td></tr></tbody></table></div>
 
-        <div id="seg3" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>💻 Curso Prático Next.js (2h)</td><td>Continuar o projeto "sistema completo + CMS".</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="ter3" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>💻 Curso Prático Next.js (2h)</td><td>Avançar no projeto gigante "Dev Controle".</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="qua3" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>💻 Curso Prático Next.js (2h)</td><td>Reta final do projeto "Dev Controle".</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="qui3" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>💻 Curso Prático Next.js (2h)</td><td>Finalizando o conteúdo do curso com o módulo de Deploy.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 2x (50min de Foco + 10min de Pausa)</td></tr></tbody></table></div>
-        <div id="sex3" class="tab-content"><table><thead><tr><th>Conteúdo</th><th>Foco do Dia</th></tr></thead><tbody><tr><td>🎉 Revisão Geral e Próximos Passos (2h)</td><td>Revisar os projetos, celebrar a conclusão e planejar seu primeiro projeto pessoal!</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: Livre para revisar e planejar.</td></tr></tbody></table></div>
+        <div id="ter2" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>📚 "Next.js do Zero ao Avançado" (Teoria)<br/>💻 "Next.js na Prática" (Início dos Módulos)</td><td>Finalizar a teoria e começar a parte prática de Next.js.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="qua2" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>💻 "Next.js na Prática"</td><td>Avançar nos primeiros projetos práticos.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="qui2" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>💻 "Next.js na Prática"</td><td>Continuar o desenvolvimento dos projetos. Foco no "Board Tarefas".</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="sex2" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>💻 "Next.js na Prática"</td><td>Codificar e evoluir os projetos.</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="sab2" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade (Imersão em Projetos Next.js)</th></tr></thead><tbody><tr><td>09:00 - 13:00</td><td>💻 "Next.js na Prática": Projetos "dalygames" e "CMS" (Sessão Manhã)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 13:00 - 15:00: Pausa para Almoço e Descanso</td></tr><tr><td>15:00 - 20:00</td><td>💻 Continuar com os projetos práticos (Sessão Tarde)</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: Ciclos de 50min de Foco + 10min de Pausa durante as sessões.</td></tr></tbody></table></div>
+        <div id="dom2" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade (Reta Final)</th></tr></thead><tbody><tr><td>09:00 - 13:00</td><td>💻 "Next.js na Prática": Projeto "Dev Controle" (Sessão Manhã)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 13:00 - 15:00: Pausa para Almoço e Descanso</td></tr><tr><td>15:00 - 20:00</td><td>🏆 Finalizar TODO o conteúdo do curso, incluindo Deploy.<br/>🎉 Revisão geral dos projetos e planeamento dos próximos passos!</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: Ciclos de 50min de Foco + 10min de Pausa. Hoje é o dia da vitória!</td></tr></tbody></table></div>
     </div>
   </div>
 
@@ -131,16 +136,12 @@
 
       allTabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          // 1. Remove a classe 'active' de TODAS as abas
+          // Remove a classe 'active' de todas as abas e conteúdos
           allTabs.forEach(t => t.classList.remove('active'));
-
-          // 2. Esconde TODO o conteúdo
           allContents.forEach(c => c.classList.remove('active'));
-
-          // 3. Ativa a aba que foi clicada
+          
+          // Adiciona a classe 'active' à aba clicada e ao conteúdo correspondente
           tab.classList.add('active');
-
-          // 4. Mostra o conteúdo correspondente à aba clicada
           const targetId = tab.dataset.tab;
           document.getElementById(targetId).classList.add('active');
         });
