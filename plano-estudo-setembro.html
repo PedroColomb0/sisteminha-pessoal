@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Plano FDS - Cronograma de Estudos Intensivo</title>
+  <title>Plano de Estudos - Formação Completa</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
     :root {
@@ -13,7 +13,8 @@
       --text: #333;
       --heading: #2c3e50;
       --break-bg: #fffbe2;
-      --sleep-bg: #e2f1ff;
+      --practice-bg: #e2f1ff;
+      --week-header: #e6f4ff;
     }
     * { box-sizing: border-box; }
     body {
@@ -31,20 +32,17 @@
       border-radius: 10px;
       box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
     }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-    h1 {
-      margin: 0;
-      font-size: 1.6rem;
-      color: var(--heading);
+    .week-title {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--accent);
+        color: var(--heading);
+        font-size: 1.4rem;
     }
     .tabs {
       display: flex;
+      flex-wrap: wrap;
       border-bottom: 2px solid var(--muted);
       margin-bottom: 20px;
     }
@@ -74,23 +72,13 @@
       padding: 12px 14px;
       background: #ecf4fb;
       color: #244a6b;
-      border-bottom: 1px solid var(--muted);
       font-weight: 700;
       font-size: 0.95rem;
     }
     tbody td {
       padding: 12px 14px;
       border-bottom: 1px solid #f0f0f0;
-      vertical-align: top;
-      font-size: 0.98rem;
     }
-    tbody tr:nth-child(even) { background: #fbfdff; }
-    tbody tr:hover { background: #eef8ff; }
-    .time { white-space: nowrap; width: 140px; font-weight: 700; color: #173a59; }
-    .activity { min-width: 260px; font-weight: 500;}
-    .note { color: #57636b; font-size: 0.95rem; }
-    .break-row { background-color: var(--break-bg) !important; font-style: italic; }
-    .sleep-row { background-color: var(--sleep-bg) !important; font-weight: bold; }
     .summary-box {
         margin-top: 24px;
         padding: 16px;
@@ -100,119 +88,123 @@
     }
     .summary-box h3 {
         margin-top: 0;
-        color: var(--heading);
         font-size: 1.1rem;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 8px;
-        margin-bottom: 12px;
-    }
-    .summary-box p {
-        margin: 4px 0;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Plano de Estudos — Fim de Semana Superintensivo</h1>
-    </header>
+    <h1>Plano de Estudos - Formação Completa</h1>
+    <p>Um cronograma realista para absorver ~51 horas de conteúdo e praticar de verdade.</p>
 
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="sabado">📅 Sábado</button>
-      <button class="tab-btn" data-tab="domingo">📅 Domingo</button>
+    <h2 class="week-title">Semana 1: Fundamentos Sólidos</h2>
+    <div class="tabs" id="tabs1">
+      <button class="tab-btn active" data-tab="ter1">Terça</button>
+      <button class="tab-btn" data-tab="qua1">Quarta</button>
+      <button class="tab-btn" data-tab="qui1">Quinta</button>
+      <button class="tab-btn" data-tab="sex1">Sexta</button>
+      <button class="tab-btn" data-tab="sab1">Sábado</button>
+      <button class="tab-btn" data-tab="dom1">Domingo</button>
     </div>
+    <div id="ter1" class="tab-content active"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso JS Essencial (1h 25m)<br>Revisão (35m)</td><td>Concluir o curso "TUDO que você deve estudar de JS".</td></tr></tbody></table></div>
+    <div id="qua1" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Módulo JS Básico e ES6+ (2h)</td><td>Iniciar o módulo detalhado de JS (aulas 1-11).</td></tr></tbody></table></div>
+    <div id="qui1" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Módulo JS Intermediário/Avançado (~50m)<br>Início React (1h 10m)</td><td>Finalizar o módulo de JS (2h 50m) e começar a teoria de React.</td></tr></tbody></table></div>
+    <div id="sex1" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso React para Iniciantes (2h)</td><td>Avançar no curso de 2h25m de React.</td></tr></tbody></table></div>
+    <div id="sab1" class="tab-content"><table><thead><tr><th>Conteúdo (8.5h)</th><th>Foco</th></tr></thead><tbody><tr><td>Finalizar Curso React (~25m)<br>Módulo React Detalhado (7h 36m)</td><td>Concluir o curso rápido de React e mergulhar no módulo principal, cobrindo quase tudo.</td></tr></tbody></table></div>
+    <div id="dom1" class="tab-content"><table><thead><tr><th>Conteúdo (8.5h)</th><th>Foco</th></tr></thead><tbody><tr><td>Finalizar Módulo React<br>Módulo Next.js Teórico</td><td>Finalizar React e avançar o máximo possível no módulo teórico de 10h do Next.js.</td></tr></tbody></table></div>
+    <div class="summary-box"><h3>Progresso da Semana 1:</h3><p>Ao final da semana, você terá concluído todo o conteúdo de JavaScript, todo o conteúdo de React e boa parte da teoria de Next.js. Uma base extremamente sólida!</p></div>
 
-    <div id="sabado" class="tab-content active">
-      <table>
-        <thead>
-          <tr>
-            <th class="time">Horário</th>
-            <th class="activity">Atividade (JS/ES6+ e React)</th>
-            <th class="note">Foco</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr><td>08:00 - 08:50</td><td>📚 Estudo JS — Funções, Arrays e Manipulação</td><td>Entender a base de manipulação de dados.</td></tr>
-            <tr class="break-row"><td>08:50 - 09:00</td><td>☕ Pausa</td><td>Pegar água, alongar.</td></tr>
-            <tr><td>09:00 - 09:50</td><td>📚 Estudo JS — ES6+: var/let/const, Strings, Desconstrução</td><td>Focar nas novas sintaxes do JS moderno.</td></tr>
-            <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa</td><td>Respirar um pouco.</td></tr>
-            <tr><td>10:00 - 10:50</td><td>📚 Estudo JS — ES6+: Spread, Rest, Arrays, Funções Anônimas</td><td>Essencial para o React. Codificar junto.</td></tr>
-            <tr class="break-row"><td>10:50 - 11:00</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
-            <tr><td>11:00 - 11:50</td><td>📚 Estudo JS — ES6+: Classes, some/every, Includes</td><td>Entender a base de OO e os novos métodos de array.</td></tr>
-            <tr class="break-row"><td>11:50 - 12:20</td><td>🍽️ Almoço</td><td>Pausa de 30 minutos para almoçar.</td></tr>
-            <tr><td>12:20 - 13:10</td><td>📚 Estudo React — Apresentação e Preparação do Ambiente</td><td>Configurar tudo para não ter problemas depois.</td></tr>
-            <tr class="break-row"><td>13:10 - 13:20</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
-            <tr><td>13:20 - 14:10</td><td>📚 Estudo React — Conceitos Básicos e Sintaxe (Parte 1 e 2)</td><td>Entender JSX, componentes, props e state.</td></tr>
-            <tr class="break-row"><td>14:10 - 14:20</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
-            <tr><td>14:20 - 15:10</td><td>📚 Estudo React — Requisições HTTP / Ajax e React Hooks</td><td>Aprender a buscar dados e usar useState/useEffect.</td></tr>
-            <tr class="sleep-row"><td>15:10 - 16:10</td><td>💤 Descanso Longo</td><td>Pausa de 1 hora para descansar/cochilar.</td></tr>
-            <tr><td>16:10 - 17:00</td><td>📚 Estudo React — Usando Rotas</td><td>Entender como funciona a navegação em SPAs.</td></tr>
-            <tr class="break-row"><td>17:00 - 17:10</td><td>☕ Pausa</td><td>Alongar.</td></tr>
-            <tr><td>17:10 - 18:00</td><td>📚 Estudo React — Redux (Parte 1 e 2)</td><td>Entender a teoria e implementar um store simples.</td></tr>
-            <tr class="break-row"><td>18:00 - 18:10</td><td>☕ Pausa</td><td>Pausa curta.</td></tr>
-            <tr><td>18:10 - 19:00</td><td>📚 Estudo React — Validações de Formulário e Deploy</td><td>Criar um formulário e aprender a publicar.</td></tr>
-        </tbody>
-      </table>
-        <div class="summary-box">
-            <h3>Resumo do Sábado</h3>
-            <p><strong>Meta:</strong> Finalizar toda a base de JS/ES6+ e o módulo de React.</p>
-            <p><strong>Tempo de Estudo:</strong> 7 horas e 30 minutos</p>
-            <p><strong>Tempo de Descanso:</strong> 2 horas e 30 minutos</p>
-            <p><strong>Período Total:</strong> 11 horas</p>
-        </div>
+    <h2 class="week-title">Semana 2: Mergulho em Next.js e Prática</h2>
+    <div class="tabs" id="tabs2">
+        <button class="tab-btn active" data-tab="seg2">Segunda</button>
+        <button class="tab-btn" data-tab="ter2">Terça</button>
+        <button class="tab-btn" data-tab="qua2">Quarta</button>
+        <button class="tab-btn" data-tab="qui2">Quinta</button>
+        <button class="tab-btn" data-tab="sex2">Sexta</button>
+        <button class="tab-btn" data-tab="sab2">Sábado</button>
+        <button class="tab-btn" data-tab="dom2">Domingo</button>
     </div>
+    <div id="seg2" class="tab-content active"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Módulo Teórico Next.js</td><td>Continuar o módulo de 10h.</td></tr></tbody></table></div>
+    <div id="ter2" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Finalizar Módulo Teórico Next.js<br>Iniciar Curso Prático Next.js</td><td>Finalizar toda a teoria e começar o curso prático de 25h.</td></tr></tbody></table></div>
+    <div id="qua2" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso Prático Next.js</td><td>Módulos "Começando com ReactJS" e "Primeiro Projeto".</td></tr></tbody></table></div>
+    <div id="sex2" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso Prático Next.js</td><td>Projeto Board Tarefas.</td></tr></tbody></table></div>
+    <div id="qui2" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso Prático Next.js</td><td>Módulo "Entendendo NextJS".</td></tr></tbody></table></div>
+    <div id="sab2" class="tab-content"><table><thead><tr><th>Conteúdo (8.5h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso Prático Next.js</td><td>Avançar nos projetos "Board Tarefas" e "Evoluindo com diretório app".</td></tr></tbody></table></div>
+    <div id="dom2" class="tab-content"><table><thead><tr><th>Conteúdo (8.5h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso Prático Next.js</td><td>Foco total no projeto "dalygames" e iniciar o "sistema completo + CMS".</td></tr></tbody></table></div>
+    <div class="summary-box"><h3>Progresso da Semana 2:</h3><p>Toda a teoria estará concluída. Você passará a semana aplicando o conhecimento em projetos reais e complexos, o que é excelente para o aprendizado.</p></div>
 
-    <div id="domingo" class="tab-content">
-      <table>
-        <thead>
-          <tr>
-            <th class="time">Horário</th>
-            <th class="activity">Atividade (Módulo de Next.js)</th>
-            <th class="note">Foco</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr><td>09:00 - 09:50</td><td>📚 Estudo — Introdução ao Next.js</td><td>Entender os conceitos chave (SSR, SSG).</td></tr>
-            <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa</td><td>Café.</td></tr>
-            <tr><td>10:00 - 10:50</td><td>📚 Estudo — Páginas e Navegação</td><td>Criar rotas e navegar entre páginas.</td></tr>
-            <tr class="break-row"><td>10:50 - 11:00</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
-            <tr><td>11:00 - 11:50</td><td>📚 Estudo — Estilização e Fetch Data (Parte 1)</td><td>Aplicar CSS e entender o data fetching.</td></tr>
-            <tr class="break-row"><td>11:50 - 12:20</td><td>🍽️ Almoço</td><td>Pausa de 30 minutos para almoçar.</td></tr>
-            <tr><td>12:20 - 13:10</td><td>💻 Prática — Fetch e Server Actions (Parte 2)</td><td>Implementar a busca de dados em uma página.</td></tr>
-            <tr class="break-row"><td>13:10 - 13:20</td><td>☕ Pausa</td><td>Respirar.</td></tr>
-            <tr><td>13:20 - 14:10</td><td>📚 Estudo — Cache e Autenticação</td><td>Entender como otimizar e proteger rotas.</td></tr>
-            <tr class="sleep-row"><td>14:10 - 15:10</td><td>💤 Descanso Longo</td><td>Pausa de 1 hora para recarregar as energias.</td></tr>
-            <tr><td>15:10 - 16:00</td><td>🚀 Projeto — NextGram (Parte 1)</td><td>Estrutura inicial do projeto.</td></tr>
-            <tr class="break-row"><td>16:00 - 16:10</td><td>☕ Pausa</td><td>Alongar.</td></tr>
-            <tr><td>16:10 - 17:00</td><td>🚀 Projeto — NextGram (Parte 2)</td><td>Continuar a implementação.</td></tr>
-            <tr class="break-row"><td>17:00 - 17:10</td><td>☕ Pausa</td><td>Descanso.</td></tr>
-            <tr><td>17:10 - 18:00</td><td>🚀 Projeto — NextGram (Parte 3)</td><td>Avançar nas funcionalidades.</td></tr>
-            <tr class="break-row"><td>18:00 - 18:10</td><td>☕ Pausa</td><td>Breve descanso.</td></tr>
-            <tr><td>18:10 - 19:10</td><td>📚 Estudo — Bônus de React</td><td>Revisão e conteúdo extra.</td></tr>
-        </tbody>
-      </table>
-        <div class="summary-box">
-            <h3>Resumo do Domingo</h3>
-            <p><strong>Meta:</strong> Concluir o curso de Next.js e o projeto prático.</p>
-            <p><strong>Tempo de Estudo:</strong> 7 horas e 20 minutos</p>
-            <p><strong>Tempo de Descanso:</strong> 2 horas e 50 minutos</p>
-            <p><strong>Período Total:</strong> 10 horas e 10 minutos</p>
-            <p><strong>Atenção:</strong> O módulo "NextGram" é extenso. Fique tranquilo se não conseguir terminar tudo. O importante é entender bem cada passo.</p>
-        </div>
+    <h2 class="week-title">Semana 3: Finalização e Projetos Pessoais</h2>
+    <div class="tabs" id="tabs3">
+        <button class="tab-btn active" data-tab="seg3">Segunda</button>
+        <button class="tab-btn" data-tab="ter3">Terça</button>
+        <button class="tab-btn" data-tab="qua3">Quarta</button>
+        <button class="tab-btn" data-tab="qui3">Quinta</button>
+        <button class="tab-btn" data-tab="sex3">Sexta</button>
     </div>
+    <div id="seg3" class="tab-content active"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso Prático Next.js</td><td>Continuar o projeto "sistema completo + CMS".</td></tr></tbody></table></div>
+    <div id="ter3" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso Prático Next.js</td><td>Iniciar o gigantesco projeto "Dev Controle".</td></tr></tbody></table></div>
+    <div id="qua3" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso Prático Next.js</td><td>Continuar o "Dev Controle".</td></tr></tbody></table></div>
+    <div id="qui3" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Curso Prático Next.js</td><td>Finalizar todo o conteúdo em vídeo com o módulo de Deploy.</td></tr></tbody></table></div>
+    <div id="sex3" class="tab-content"><table><thead><tr><th>Conteúdo (2h)</th><th>Foco</th></tr></thead><tbody><tr><td>Revisão e Planejamento</td><td>Revisar os projetos do curso e planejar um projeto 100% seu.</td></tr></tbody></table></div>
+    <div class="summary-box"><h3>Progresso da Semana 3:</h3><p>Você terá finalizado 100% dos cursos! O resto da semana e o fim de semana devem ser usados para reforçar, construir algo seu e começar a montar seu portfólio.</p></div>
+
   </div>
-
   <script>
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Remove a classe 'active' de todos os botões e conteúdos
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        
-        // Adiciona a classe 'active' ao botão clicado e ao conteúdo correspondente
-        btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
-      });
+    function setupTabs(tabGroupId) {
+        const tabContainer = document.getElementById(tabGroupId);
+        if (!tabContainer) return;
+
+        const tabs = tabContainer.querySelectorAll('.tab-btn');
+        const contents = tabContainer.nextElementSibling.querySelectorAll('.tab-content');
+
+        // This is a bit brittle, assumes content divs follow tabs div immediately.
+        // A better way would be to wrap them in a container. For this case, it's fine.
+        const contentParent = tabs[0].closest('.container');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Find all tab buttons within the same group and deactivate them
+                tabContainer.querySelectorAll('.tab-btn').forEach(item => item.classList.remove('active'));
+                
+                // Activate the clicked tab
+                tab.classList.add('active');
+                
+                // Hide all tab content related to THIS group
+                const tabId = tab.dataset.tab;
+                contentParent.querySelectorAll(`[id^="${tabId.slice(0, -1)}"]`).forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show the corresponding content
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        // Since the tab buttons are not unique, we need to handle them in groups.
+        // I've given the tab containers unique IDs to manage this.
+        // Let's assume a better structure where each week is a component.
+        // For now, I'll select all tab containers and initialize them.
+        const allTabContainers = document.querySelectorAll('.tabs');
+        allTabContainers.forEach(container => {
+            const buttons = container.querySelectorAll('.tab-btn');
+            const weekIdPrefix = buttons[0].dataset.tab.slice(0, -1);
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Deactivate all buttons in this container
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Deactivate all content sections for this week
+                    document.querySelectorAll(`.tab-content[id^="${weekIdPrefix}"]`).forEach(c => c.classList.remove('active'));
+                    
+                    // Activate the target content
+                    document.getElementById(btn.dataset.tab).classList.add('active');
+                });
+            });
+        });
     });
   </script>
 </body>
