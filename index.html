@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Plano de Estudos - JS, React e Next.js</title>
+  <title>Plano de Estudos Otimizado - React</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
     :root {
@@ -14,6 +14,7 @@
       --heading: #2c3e50;
       --break-bg: #fffbe2;
       --practice-bg: #e2f1ff;
+      --weekend-header: #e6f4ff;
     }
     * { box-sizing: border-box; }
     body {
@@ -45,6 +46,7 @@
     }
     .tabs {
       display: flex;
+      flex-wrap: wrap;
       border-bottom: 2px solid var(--muted);
       margin-bottom: 20px;
     }
@@ -77,6 +79,9 @@
       border-bottom: 1px solid var(--muted);
       font-weight: 700;
       font-size: 0.95rem;
+    }
+    #sabado thead th, #domingo thead th {
+        background-color: var(--weekend-header);
     }
     tbody td {
       padding: 12px 14px;
@@ -114,138 +119,146 @@
 <body>
   <div class="container">
     <header>
-      <h1>Plano de Estudos Focado: JS, React e Next.js</h1>
+      <h1>Plano de Estudos Otimizado</h1>
     </header>
 
     <div class="tabs">
-      <button class="tab-btn" data-tab="terca">📅 Terça</button>
-      <button class="tab-btn" data-tab="quarta">📅 Quarta</button>
-      <button class="tab-btn active" data-tab="sabado">📅 Sábado (Intensivo)</button>
-      <button class="tab-btn" data-tab="domingo">📅 Domingo (Prática)</button>
+      <button class="tab-btn active" data-tab="segunda">📅 Segunda (22/09)</button>
+      <button class="tab-btn" data-tab="terca">📅 Terça (23/09)</button>
+      <button class="tab-btn" data-tab="quarta">📅 Quarta (24/09)</button>
+      <button class="tab-btn" data-tab="quinta">📅 Quinta (25/09)</button>
+      <button class="tab-btn" data-tab="sexta">📅 Sexta (26/09)</button>
+      <button class="tab-btn" data-tab="sabado">📅 Sábado (27/09)</button>
+      <button class="tab-btn" data-tab="domingo">📅 Domingo (28/09)</button>
     </div>
 
+    <div id="segunda" class="tab-content active">
+      <table>
+        <thead><tr><th>Horário (2h)</th><th>Atividade</th><th>Foco</th></tr></thead>
+        <tbody>
+          <tr><td>_Bloco 1_</td><td>📚 **Curso JavaScript** (1h 26min)</td><td>Concluir 100% do curso de JS, que é a base para tudo.</td></tr>
+          <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (5 min)</td><td>Descanso.</td></tr>
+          <tr><td>_Bloco 2_</td><td>🧠 **Revisão e Prática JS** (29 min)</td><td>Refazer os principais exemplos do curso (map, filter, promises).</td></tr>
+        </tbody>
+      </table>
+        <div class="summary-box">
+            <h3>Resumo da Segunda</h3>
+            <p><strong>Meta:</strong> Dominar os fundamentos de JavaScript.</p>
+        </div>
+    </div>
+    
     <div id="terca" class="tab-content">
       <table>
-        <thead>
-          <tr>
-            <th class="time">Horário</th>
-            <th class="activity">Atividade</th>
-            <th class="note">Foco</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Horário (2h)</th><th>Atividade</th><th>Foco</th></tr></thead>
         <tbody>
-          <tr><td>_Início_</td><td>📚 **Curso JavaScript** (Parte 1) - 1h 25min</td><td>Concluir todo o curso de JS.</td></tr>
-          <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (10 min)</td><td>Descanso.</td></tr>
-          <tr><td>_Continuação_</td><td>📚 **Curso React** (Parte 1) - 1h 25min</td><td>Iniciar o curso de React e entender os fundamentos.</td></tr>
+          <tr><td>_Início_</td><td>📚 **Curso React** (2h)</td><td>Focar nos conceitos chave: Componentes, JSX, State e Props.</td></tr>
         </tbody>
       </table>
         <div class="summary-box">
             <h3>Resumo da Terça</h3>
-            <p><strong>Meta:</strong> Finalizar o curso de JS e começar React com força total.</p>
-            <p><strong>Tempo de Estudo:</strong> ~2 horas e 50 minutos</p>
+            <p><strong>Meta:</strong> Avançar o máximo possível no curso de React.</p>
         </div>
     </div>
-
+    
     <div id="quarta" class="tab-content">
-        <table>
-          <thead>
-            <tr>
-              <th class="time">Horário</th>
-              <th class="activity">Atividade</th>
-              <th class="note">Foco</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>_Início_</td><td>📚 **Curso React** (Final) - 1h</td><td>Concluir o curso de React.</td></tr>
-            <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (10 min)</td><td>Descanso.</td></tr>
-            <tr><td>_Continuação_</td><td>📚 **Curso Next.js** - 1h 20min</td><td>Finalizar o último curso.</td></tr>
-            <tr class="practice-row"><td>_Final_</td><td>🚀 **Revisão Geral** - 30 min</td><td>Revisar os pontos principais dos 3 cursos.</td></tr>
-          </tbody>
-        </table>
+      <table>
+        <thead><tr><th>Horário (2h)</th><th>Atividade</th><th>Foco</th></tr></thead>
+        <tbody>
+          <tr><td>_Bloco 1_</td><td>📚 **Finalizar Curso React** (~26 min)</td><td>Concluir as aulas restantes de React.</td></tr>
+          <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (10 min)</td><td>Descanso e preparação.</td></tr>
+          <tr><td>_Bloco 2_</td><td>📚 **Curso Next.js** (1h 21min)</td><td>Concluir 100% do curso de Next.js.</td></tr>
+        </tbody>
+      </table>
         <div class="summary-box">
             <h3>Resumo da Quarta</h3>
-            <p><strong>Meta:</strong> Concluir toda a parte teórica e se preparar para a prática.</p>
-            <p><strong>Tempo de Estudo:</strong> ~2 horas e 50 minutos</p>
+            <p><strong>Meta:</strong> Finalizar toda a parte teórica dos cursos. Missão cumprida!</p>
         </div>
     </div>
 
-    <div id="sabado" class="tab-content active">
+    <div id="quinta" class="tab-content">
       <table>
-        <thead>
-          <tr>
-            <th class="time">Horário</th>
-            <th class="activity">Atividade (Foco total nos cursos)</th>
-            <th class="note">Foco</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Horário (2h)</th><th>Atividade</th><th>Foco</th></tr></thead>
         <tbody>
-            <tr><td>08:00 - 08:50</td><td>📚 **Curso JavaScript** (Parte 1)</td><td>Fundamentos, Compiladores, Operadores.</td></tr>
-            <tr class="break-row"><td>08:50 - 09:00</td><td>☕ Pausa Pomodoro</td><td>Descanso rápido.</td></tr>
-            <tr><td>09:00 - 09:35</td><td>📚 **Curso JavaScript** (Final)</td><td>Promises, ES Modules e conclusão.</td></tr>
-            <tr class="break-row"><td>09:35 - 09:50</td><td>☕ Pausa Maior</td><td>Preparar para o próximo módulo.</td></tr>
-            <tr><td>09:50 - 10:40</td><td>📚 **Curso React** (Parte 1)</td><td>O que é React, Componentes, JSX, State.</td></tr>
-            <tr class="break-row"><td>10:40 - 10:50</td><td>☕ Pausa Pomodoro</td><td>Alongar.</td></tr>
-            <tr><td>10:50 - 11:40</td><td>📚 **Curso React** (Parte 2)</td><td>Props, Listas, Condicionais, Eventos.</td></tr>
-            <tr class="break-row"><td>11:40 - 13:10</td><td>🍽️ Almoço e Descanso</td><td>Pausa de 1h 30min (conforme solicitado).</td></tr>
-            <tr><td>13:10 - 14:00</td><td>📚 **Curso React** (Final)</td><td>Router, APIs, LocalStorage e Deploy.</td></tr>
-            <tr class="break-row"><td>14:00 - 14:15</td><td>☕ Pausa Maior</td><td>Respirar fundo antes do último curso.</td></tr>
-            <tr><td>14:15 - 15:05</td><td>📚 **Curso Next.js** (Parte 1)</td><td>React vs Next, Páginas, SEO, Componentes.</td></tr>
-            <tr class="break-row"><td>15:05 - 15:15</td><td>☕ Pausa Pomodoro</td><td>Descanso.</td></tr>
-            <tr><td>15:15 - 15:45</td><td>📚 **Curso Next.js** (Final)</td><td>Rotas Dinâmicas, Cache, Middlewares.</td></tr>
-            <tr class="practice-row"><td>15:45 - 18:00</td><td>🚀 **Prática Inicial e Revisão**</td><td>Criar um projeto `create-next-app` e revisar anotações.</td></tr>
+          <tr><td>_Início_</td><td>🚀 **Prática Guiada React** (2h)</td><td>Recriar um dos projetos do curso de React do zero, sem olhar o gabarito. Tente implementar uma To-Do List ou similar.</td></tr>
+        </tbody>
+      </table>
+        <div class="summary-box">
+            <h3>Resumo da Quinta</h3>
+            <p><strong>Meta:</strong> Solidificar os conceitos de React com a mão no código.</p>
+        </div>
+    </div>
+
+    <div id="sexta" class="tab-content">
+      <table>
+        <thead><tr><th>Horário (2h)</th><th>Atividade</th><th>Foco</th></tr></thead>
+        <tbody>
+          <tr><td>_Bloco 1_</td><td>📝 **Planejamento do Projeto** (45 min)</td><td>Definir as funcionalidades do projeto do fim de semana. Ex: Blog com posts, galeria de imagens, etc.</td></tr>
+          <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (10 min)</td><td>Descanso.</td></tr>
+          <tr><td>_Bloco 2_</td><td>🚀 **Setup do Ambiente** (1h 05min)</td><td>Criar o projeto com `create-next-app`, configurar o repositório no GitHub e a estrutura inicial de pastas.</td></tr>
+        </tbody>
+      </table>
+        <div class="summary-box">
+            <h3>Resumo da Sexta</h3>
+            <p><strong>Meta:</strong> Deixar o campo preparado para um fim de semana de desenvolvimento intenso.</p>
+        </div>
+    </div>
+
+    <div id="sabado" class="tab-content">
+      <table>
+        <thead><tr><th>Horário</th><th>Atividade (Foco no Projeto Pessoal)</th><th>Foco</th></tr></thead>
+        <tbody>
+          <tr><td>08:00 - 09:50</td><td>🚀 **Desenvolvimento (Bloco 1)**</td><td>Criar a estrutura de layout e componentes principais (Header, Footer).</td></tr>
+          <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa Pomodoro</td><td>Descanso rápido.</td></tr>
+          <tr><td>10:00 - 11:50</td><td>🚀 **Desenvolvimento (Bloco 2)**</td><td>Implementar a página inicial e a navegação entre páginas.</td></tr>
+          <tr class="break-row"><td>11:50 - 13:20</td><td>🍽️ Almoço e Descanso</td><td>Pausa de 1h 30min.</td></tr>
+          <tr><td>13:20 - 15:10</td><td>🚀 **Desenvolvimento (Bloco 3)**</td><td>Conectar com uma API (pode ser uma API pública de teste).</td></tr>
+          <tr class="break-row"><td>15:10 - 15:20</td><td>☕ Pausa Pomodoro</td><td>Alongar.</td></tr>
+          <tr><td>15:20 - 17:10</td><td>🚀 **Desenvolvimento (Bloco 4)**</td><td>Exibir os dados da API na tela de forma estilizada.</td></tr>
+          <tr class="practice-row"><td>17:10 - 18:00</td><td>📦 **Revisão e Refatoração**</td><td>Organizar o código do dia e planejar as tarefas de amanhã.</td></tr>
         </tbody>
       </table>
         <div class="summary-box">
             <h3>Resumo do Sábado</h3>
-            <p><strong>Meta:</strong> Concluir 100% do conteúdo em vídeo dos 3 cursos.</p>
-            <p><strong>Tempo de Estudo:</strong> 5h 50min</p>
-            <p><strong>Tempo de Descanso:</strong> 2h 40min</p>
-            <p><strong>Período Total:</strong> 8h 30min (até a prática)</p>
+            <p><strong>Meta:</strong> Construir a base funcional do seu projeto pessoal.</p>
         </div>
     </div>
-
+    
     <div id="domingo" class="tab-content">
       <table>
-        <thead>
-          <tr>
-            <th class="time">Horário</th>
-            <th class="activity">Atividade (Foco em Prática e Fixação)</th>
-            <th class="note">Foco</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Horário</th><th>Atividade (Finalização e Deploy)</th><th>Foco</th></tr></thead>
         <tbody>
-          <tr><td>08:00 - 08:50</td><td>🧠 Revisão Ativa JS</td><td>Recriar exemplos de `map`, `filter`, `reduce` e Promises.</td></tr>
-          <tr class="break-row"><td>08:50 - 09:00</td><td>☕ Pausa</td><td>Café.</td></tr>
-          <tr><td>09:00 - 10:30</td><td>🚀 **Projeto Prático 1** (React)</td><td>Criar uma To-Do List com state e props.</td></tr>
-          <tr class="break-row"><td>10:30 - 10:45</td><td>☕ Pausa Maior</td><td>Descanso.</td></tr>
-          <tr><td>10:45 - 11:45</td><td>🚀 **Projeto Prático 1** (React)</td><td>Adicionar LocalStorage para salvar as tarefas.</td></tr>
-          <tr class="break-row"><td>11:45 - 13:15</td><td>🍽️ Almoço e Descanso</td><td>Pausa de 1h 30min.</td></tr>
-          <tr><td>13:15 - 14:45</td><td>🚀 **Projeto Prático 2** (Next.js)</td><td>Iniciar um blog simples com páginas estáticas.</td></tr>
-          <tr class="break-row"><td>14:45 - 15:00</td><td>☕ Pausa</td><td>Alongar.</td></tr>
-          <tr><td>15:00 - 16:30</td><td>🚀 **Projeto Prático 2** (Next.js)</td><td>Consumir uma API externa (ex: de posts falsos) para o blog.</td></tr>
-          <tr class="break-row"><td>16:30 - 16:45</td><td>☕ Pausa</td><td>Descanso.</td></tr>
-          <tr class="practice-row"><td>16:45 - 18:00</td><td>📝 Planejamento</td><td>Definir os próximos passos e projetos para a semana.</td></tr>
+          <tr><td>08:00 - 09:50</td><td>🚀 **Desenvolvimento (Bloco 5)**</td><td>Adicionar uma nova funcionalidade (Ex: busca, filtro, página de detalhes).</td></tr>
+          <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa Pomodoro</td><td>Café.</td></tr>
+          <tr><td>10:00 - 11:50</td><td>🎨 **Estilização Fina**</td><td>Focar nos detalhes visuais e na experiência do usuário.</td></tr>
+          <tr class="break-row"><td>11:50 - 13:20</td><td>🍽️ Almoço e Descanso</td><td>Pausa de 1h 30min.</td></tr>
+          <tr><td>13:20 - 15:10</td><td>📱 **Responsividade**</td><td>Garantir que o projeto funcione bem em celulares e tablets.</td></tr>
+          <tr class="break-row"><td>15:10 - 15:20</td><td>☕ Pausa Pomodoro</td><td>Descanso.</td></tr>
+          <tr><td>15:20 - 17:10</td><td>☁️ **Deploy**</td><td>Publicar seu projeto na Vercel para que o mundo possa ver!</td></tr>
+          <tr class="practice-row"><td>17:10 - 18:00</td><td>🎉 **Portfólio e Próximos Passos**</td><td>Escrever um README para o projeto no GitHub e planejar futuras melhorias.</td></tr>
         </tbody>
       </table>
         <div class="summary-box">
             <h3>Resumo do Domingo</h3>
-            <p><strong>Meta:</strong> Solidificar o conhecimento através de projetos práticos.</p>
-            <p><strong>Tempo de Estudo/Prática:</strong> 6h 30min</p>
-            <p><strong>Tempo de Descanso:</strong> 2h 30min</p>
-            <p><strong>Período Total:</strong> 9h</p>
+            <p><strong>Meta:</strong> Ter um projeto funcional, online e pronto para o seu portfólio.</p>
         </div>
     </div>
+
   </div>
 
   <script>
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
         
-        btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
-      });
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(item => item.classList.remove('active'));
+                contents.forEach(item => item.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
     });
   </script>
 </body>
