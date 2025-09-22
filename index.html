@@ -2,251 +2,40 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Plano de Estudos Final - React</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>
-    :root {
-      --bg: #f4f7f9;
-      --card: #fff;
-      --accent: #007acc;
-      --muted: #e0e0e0;
-      --text: #333;
-      --heading: #2c3e50;
-      --break-bg: #fffbe2;
-      --practice-bg: #e2f1ff;
-      --weekend-header: #e6f4ff;
-    }
-    * { box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      padding: 24px;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      background-color: var(--card);
-      padding: 28px;
-      border-radius: 10px;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-    h1 {
-      margin: 0;
-      font-size: 1.6rem;
-      color: var(--heading);
-    }
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      border-bottom: 2px solid var(--muted);
-      margin-bottom: 20px;
-    }
-    .tab-btn {
-      padding: 10px 18px;
-      cursor: pointer;
-      border: none;
-      background: none;
-      font-weight: 600;
-      color: #555;
-      transition: 0.2s;
-      font-size: 1rem;
-    }
-    .tab-btn.active {
-      border-bottom: 3px solid var(--accent);
-      color: var(--accent);
-    }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 18px;
-    }
-    thead th {
-      text-align: left;
-      padding: 12px 14px;
-      background: #ecf4fb;
-      color: #244a6b;
-      border-bottom: 1px solid var(--muted);
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-    #sabado thead th, #domingo thead th {
-        background-color: var(--weekend-header);
-    }
-    tbody td {
-      padding: 12px 14px;
-      border-bottom: 1px solid #f0f0f0;
-      vertical-align: top;
-      font-size: 0.98rem;
-    }
-    tbody tr:nth-child(even) { background: #fbfdff; }
-    tbody tr:hover { background: #eef8ff; }
-    .time { white-space: nowrap; width: 140px; font-weight: 700; color: #173a59; }
-    .activity { min-width: 260px; font-weight: 500;}
-    .note { color: #57636b; font-size: 0.95rem; }
-    .break-row { background-color: var(--break-bg) !important; font-style: italic; }
-    .practice-row { background-color: var(--practice-bg) !important; font-weight: bold; }
-    .summary-box {
-        margin-top: 24px;
-        padding: 16px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        border: 1px solid var(--muted);
-    }
-    .summary-box h3 {
-        margin-top: 0;
-        color: var(--heading);
-        font-size: 1.1rem;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 8px;
-        margin-bottom: 12px;
-    }
-    .summary-box p {
-        margin: 4px 0;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Site</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+  <div class="menu-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </div>
+  
   <div class="container">
-    <header>
-      <h1>Plano de Estudos Final: Missão React</h1>
-    </header>
-
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="terca">📅 Terça (23/09)</button>
-      <button class="tab-btn" data-tab="quarta">📅 Quarta (24/09)</button>
-      <button class="tab-btn" data-tab="quinta">📅 Quinta (25/09)</button>
-      <button class="tab-btn" data-tab="sexta">📅 Sexta (26/09)</button>
-      <button class="tab-btn" data-tab="sabado">📅 Sábado (27/09)</button>
-      <button class="tab-btn" data-tab="domingo">📅 Domingo (28/09)</button>
-    </div>
-
-    <div id="terca" class="tab-content active">
-      <table>
-        <thead><tr><th>Horário (2h)</th><th>Atividade</th><th>Foco</th></tr></thead>
-        <tbody>
-          <tr><td>_Bloco 1_</td><td>📚 **Curso JavaScript** (1h 26min)</td><td>Concluir 100% do curso de JS. É a base para o resto.</td></tr>
-          <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (5 min)</td><td>Descanso.</td></tr>
-          <tr><td>_Bloco 2_</td><td>🧠 **Revisão Ativa JS** (29 min)</td><td>Refazer os principais exemplos do curso (map, filter, promises).</td></tr>
-        </tbody>
-      </table>
-        <div class="summary-box">
-            <h3>Resumo da Terça</h3>
-            <p><strong>Meta:</strong> Dominar os fundamentos de JavaScript.</p>
-        </div>
-    </div>
-    
-    <div id="quarta" class="tab-content">
-      <table>
-        <thead><tr><th>Horário (2h)</th><th>Atividade</th><th>Foco</th></tr></thead>
-        <tbody>
-          <tr><td>_Início_</td><td>📚 **Curso React** (2h)</td><td>Focar nos conceitos chave: Componentes, JSX, State e Props.</td></tr>
-        </tbody>
-      </table>
-        <div class="summary-box">
-            <h3>Resumo da Quarta</h3>
-            <p><strong>Meta:</strong> Mergulhar de cabeça no ecossistema React.</p>
-        </div>
-    </div>
-    
-    <div id="quinta" class="tab-content">
-      <table>
-        <thead><tr><th>Horário (2h)</th><th>Atividade</th><th>Foco</th></tr></thead>
-        <tbody>
-          <tr><td>_Bloco 1_</td><td>📚 **Finalizar Curso React** (~26 min)</td><td>Concluir as aulas restantes de React.</td></tr>
-          <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (10 min)</td><td>Descanso.</td></tr>
-          <tr><td>_Bloco 2_</td><td>📚 **Curso Next.js** (1h 21min)</td><td>Concluir 100% do curso de Next.js.</td></tr>
-        </tbody>
-      </table>
-        <div class="summary-box">
-            <h3>Resumo da Quinta</h3>
-            <p><strong>Meta:</strong> Finalizar toda a parte teórica. A partir de agora, é só prática!</p>
-        </div>
-    </div>
-
-    <div id="sexta" class="tab-content">
-      <table>
-        <thead><tr><th>Horário (2h)</th><th>Atividade</th><th>Foco</th></tr></thead>
-        <tbody>
-          <tr><td>_Bloco 1_</td><td>📝 **Planejamento do Projeto** (45 min)</td><td>Definir as funcionalidades do projeto do fim de semana (Ex: Blog, Lista de Filmes, Pokédex).</td></tr>
-          <tr class="break-row"><td>_Pausa_</td><td>☕ Pausa (10 min)</td><td>Descanso.</td></tr>
-          <tr><td>_Bloco 2_</td><td>🚀 **Setup do Ambiente** (1h 05min)</td><td>Criar o projeto com `create-next-app`, configurar o repositório no GitHub e a estrutura inicial de pastas.</td></tr>
-        </tbody>
-      </table>
-        <div class="summary-box">
-            <h3>Resumo da Sexta</h3>
-            <p><strong>Meta:</strong> Deixar o campo preparado para um fim de semana de desenvolvimento intenso.</p>
-        </div>
-    </div>
-
-    <div id="sabado" class="tab-content">
-      <table>
-        <thead><tr><th>Horário</th><th>Atividade (Projeto Pessoal)</th><th>Foco</th></tr></thead>
-        <tbody>
-          <tr><td>08:00 - 09:50</td><td>🚀 **Desenvolvimento (Bloco 1)**</td><td>Criar a estrutura de layout e componentes principais (Header, Footer, Card).</td></tr>
-          <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa Pomodoro</td><td>Descanso rápido.</td></tr>
-          <tr><td>10:00 - 11:50</td><td>🚀 **Desenvolvimento (Bloco 2)**</td><td>Implementar a página inicial e a navegação entre páginas.</td></tr>
-          <tr class="break-row"><td>11:50 - 13:20</td><td>🍽️ Almoço e Descanso</td><td>Pausa de 1h 30min.</td></tr>
-          <tr><td>13:20 - 15:10</td><td>🚀 **Desenvolvimento (Bloco 3)**</td><td>Conectar com uma API pública para buscar dados.</td></tr>
-          <tr class="break-row"><td>15:10 - 15:20</td><td>☕ Pausa Pomodoro</td><td>Alongar.</td></tr>
-          <tr><td>15:20 - 17:10</td><td>🚀 **Desenvolvimento (Bloco 4)**</td><td>Exibir os dados da API na tela de forma estilizada.</td></tr>
-          <tr class="practice-row"><td>17:10 - 18:00</td><td>📦 **Revisão e Refatoração**</td><td>Organizar o código do dia e planejar as tarefas de domingo.</td></tr>
-        </tbody>
-      </table>
-        <div class="summary-box">
-            <h3>Resumo do Sábado</h3>
-            <p><strong>Meta:</strong> Construir a base funcional do seu projeto pessoal.</p>
-        </div>
-    </div>
-    
-    <div id="domingo" class="tab-content">
-      <table>
-        <thead><tr><th>Horário</th><th>Atividade (Finalização e Deploy)</th><th>Foco</th></tr></thead>
-        <tbody>
-          <tr><td>08:00 - 09:50</td><td>🚀 **Desenvolvimento (Bloco 5)**</td><td>Adicionar uma nova funcionalidade (Ex: busca, filtro, página de detalhes).</td></tr>
-          <tr class="break-row"><td>09:50 - 10:00</td><td>☕ Pausa Pomodoro</td><td>Café.</td></tr>
-          <tr><td>10:00 - 11:50</td><td>🎨 **Estilização Fina**</td><td>Focar nos detalhes visuais e na experiência do usuário.</td></tr>
-          <tr class="break-row"><td>11:50 - 13:20</td><td>🍽️ Almoço e Descanso</td><td>Pausa de 1h 30min.</td></tr>
-          <tr><td>13:20 - 15:10</td><td>📱 **Responsividade**</td><td>Garantir que o projeto funcione bem em celulares e tablets.</td></tr>
-          <tr class="break-row"><td>15:10 - 15:20</td><td>☕ Pausa Pomodoro</td><td>Descanso.</td></tr>
-          <tr><td>15:20 - 17:10</td><td>☁️ **Deploy**</td><td>Publicar seu projeto na Vercel para que o mundo possa ver!</td></tr>
-          <tr class="break-row"><td>17:10 - 18:00</td><td>☕ Pausa Longa</td><td>Descansar antes do sprint final.</td></tr>
-          <tr class="practice-row"><td>18:00 - 20:00</td><td>🎉 **Portfólio e Próximos Passos**</td><td>Escrever um README.md de qualidade para o projeto no GitHub e planejar futuras melhorias.</td></tr>
-        </tbody>
-      </table>
-        <div class="summary-box">
-            <h3>Resumo do Domingo</h3>
-            <p><strong>Meta:</strong> Ter um projeto funcional, online e pronto para o seu portfólio.</p>
-        </div>
-    </div>
-
+    <aside class="sidebar" id="sidebar">
+      <h2>Menu</h2>
+      <nav>
+        <ul>
+          <li><a href="#" onclick="carregarPagina('home.html')">Home</a></li>
+          <li><a href="#" onclick="carregarPagina('cronograma.html')">Cronograma</a></li>
+          <li><a href="#" onclick="carregarPagina('dieta.html')">Dieta</a></li>
+          <li><a href="#" onclick="carregarPagina('treino.html')">Treino</a></li>
+          <li><a href="#" onclick="carregarPagina('meu-plano.html')">Meu Plano</a></li>
+          <li><a href="#" onclick="carregarPagina('plano-fds.html')">Plano Fds</a></li>
+          <li><a href="#" onclick="carregarPagina('plano-fds-2.html')">Plano Sab/Domingo</a></li>
+          <li><a href="#" onclick="carregarPagina('tutorial.html')">Tutorial</a></li>
+          <li><a href="#" onclick="carregarPagina('semana-22.html')">Semana 22</a></li>
+          <li><a href="#" onclick="carregarPagina('exercicio-k.html')">Exercicio K</a></li>
+          <li><a href="#" onclick="carregarPagina('plano-estudo-setembro.html')">Plano Estudo Setembro</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="conteudo">
+      <iframe id="conteudo-frame" src="home.html"></iframe>
+    </main>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const tabs = document.querySelectorAll('.tab-btn');
-        const contents = document.querySelectorAll('.tab-content');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(item => item.classList.remove('active'));
-                contents.forEach(item => item.classList.remove('active'));
-                
-                tab.classList.add('active');
-                document.getElementById(tab.dataset.tab).classList.add('active');
-            });
-        });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
