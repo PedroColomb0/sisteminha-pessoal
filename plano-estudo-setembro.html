@@ -9,236 +9,167 @@
       --bg: #f4f7f9;
       --card: #ffffff;
       --accent: #007acc;
-      --text: #333333;
-      --muted: #666666;
-      --border: #e0e6eb;
+      --muted: #e0e0e0;
+      --text: #333;
+      --heading: #2c3e50;
+      --break-bg: #fffbe2;
+      --long-break-bg: #e2f1ff;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 24px;
+      background-color: var(--bg);
       color: var(--text);
-      display: flex;
-      min-height: 100vh;
+      line-height: 1.6;
     }
-
-    aside {
-      width: 240px;
-      background: var(--card);
-      border-right: 1px solid var(--border);
-      padding: 20px;
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: var(--card);
+      padding: 28px;
+      border-radius: 10px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
     }
-
-    aside h2 {
-      font-size: 18px;
-      margin-bottom: 16px;
-      color: var(--accent);
-    }
-
-    aside ul {
-      list-style: none;
-    }
-
-    aside li {
-      margin-bottom: 10px;
-    }
-
-    aside a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 15px;
-      display: block;
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: 0.2s;
-    }
-
-    aside a:hover,
-    aside a.active {
-      background: var(--accent);
-      color: white;
-    }
-
-    main {
-      flex: 1;
-      padding: 20px;
-    }
-
     h1 {
-      font-size: 22px;
-      margin-bottom: 16px;
+        color: var(--heading);
+        margin-bottom: 8px;
     }
-
-    section {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 12px;
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 2px solid var(--muted);
       margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
-
-    section h2 {
-      margin-bottom: 12px;
-      font-size: 18px;
+    .tab-btn {
+      padding: 10px 16px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-weight: 600;
+      color: #555;
+      transition: 0.2s;
+      font-size: 0.95rem;
+      border-radius: 4px 4px 0 0;
+    }
+    .tab-btn.active {
+      border-bottom: 3px solid var(--accent);
       color: var(--accent);
+      background-color: #f7f9fc;
     }
-
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
     table {
       width: 100%;
       border-collapse: collapse;
+      margin-top: 18px;
     }
-
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid var(--border);
+    thead th {
       text-align: left;
-      font-size: 14px;
+      padding: 12px 14px;
+      background: #ecf4fb;
+      color: #244a6b;
+      font-weight: 700;
+      font-size: 0.95rem;
     }
-
-    th {
-      background: #f0f4f8;
-      font-weight: 600;
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0f0f0;
     }
-
-    td span {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    @media (max-width: 768px) {
-      aside {
-        display: none;
-      }
-      main {
+    tbody tr:nth-child(even) { background: #fbfdff; }
+    .pomodoro {
+        background-color: #f8f9fa;
+        text-align: center;
+        font-style: italic;
+        color: #555;
+        font-size: 0.9em;
         padding: 10px;
-      }
+    }
+    .long-break-row {
+      background-color: var(--long-break-bg) !important;
+      font-weight: bold;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <aside>
-    <h2>Dias</h2>
-    <ul>
-      <li><a href="#dia1" class="active">Qui - 25/09</a></li>
-      <li><a href="#dia2">Sex - 26/09</a></li>
-      <li><a href="#dia3">Sáb - 27/09</a></li>
-      <li><a href="#dia4">Dom - 28/09</a></li>
-      <li><a href="#dia5">Sáb - 04/10</a></li>
-      <li><a href="#dia6">Dom - 05/10</a></li>
-      <!-- pode adicionar mais conforme avança -->
-    </ul>
-  </aside>
+  <div class="container">
+    <h1>🚀 Plano de Estudos - Jornada Full-Stack (v3)</h1>
+    <p>Seu cronograma atualizado com início em <strong>25 de Setembro de 2025</strong>.</p>
 
-  <main>
-    <h1>Plano de Estudos - Jornada Full-Stack v3</h1>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="qui1">Qui, 25/09</button>
+      <button class="tab-btn" data-tab="sex1">Sex, 26/09</button>
+      <button class="tab-btn" data-tab="sab1">Sáb, 27/09</button>
+      <button class="tab-btn" data-tab="dom1">Dom, 28/09</button>
+      <button class="tab-btn" data-tab="seg2">Seg, 29/09</button>
+      <button class="tab-btn" data-tab="ter2">Ter, 30/09</button>
+      <button class="tab-btn" data-tab="qua2">Qua, 01/10</button>
+      <button class="tab-btn" data-tab="qui2">Qui, 02/10</button>
+      <button class="tab-btn" data-tab="sex2">Sex, 03/10</button>
+      <button class="tab-btn" data-tab="sab2">Sáb, 04/10</button>
+      <button class="tab-btn" data-tab="dom2">Dom, 05/10</button>
+      <button class="tab-btn" data-tab="seg3">Seg, 06/10</button>
+      <button class="tab-btn" data-tab="ter3">Ter, 07/10</button>
+    </div>
 
-    <!-- Dia 1 -->
-    <section id="dia1">
-      <h2>Qui - 25/09</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Horário</th>
-            <th>Atividade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>19:00 - 20:30</td>
-            <td>Tudo que você deve estudar de JS <span>(1h25m)</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <div class="content-container">
+      <!-- Qui, 25/09 -->
+      <div id="qui1" class="tab-content active"><table><thead><tr><th>Conteúdo (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>📚 "Tudo que você deve estudar de JS" (1h25m)<br/>📚 "Aprenda JavaScript em 1 Vídeo" (Início - 1h05m)</td><td>Finalizar curso inicial de JS e começar introdução prática.</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30</td></tr></tbody></table></div>
 
-    <!-- Dia 2 -->
-    <section id="dia2">
-      <h2>Sex - 26/09</h2>
-      <table>
-        <tbody>
-          <tr>
-            <td>19:00 - 21:15</td>
-            <td>Aprenda JS em 1 Vídeo <span>(2h15m)</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- Sex, 26/09 -->
+      <div id="sex1" class="tab-content"><table><thead><tr><th>Conteúdo (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>📚 "Aprenda JavaScript em 1 Vídeo" (Conclusão - 1h10m)<br/>📚 Módulo JS Detalhado (Início - 1h20m)</td><td>Encerrar introdução JS e iniciar aprofundamento.</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30</td></tr></tbody></table></div>
 
-    <!-- Dia 3 -->
-    <section id="dia3">
-      <h2>Sáb - 27/09</h2>
-      <table>
-        <tbody>
-          <tr>
-            <td>09:00 - 12:00</td>
-            <td>React para Iniciantes (Curso curto) <span>(2h25m - início)</span></td>
-          </tr>
-          <tr>
-            <td>14:00 - 18:00</td>
-            <td>React para Iniciantes (conclusão) + Dominando NextJS <span>(1h20m)</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- Sáb, 27/09 -->
+      <div id="sab1" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade</th></tr></thead><tbody><tr><td>09:00 - 12:00</td><td>📚 Conclusão Módulo JS Detalhado</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 12:00 - 14:00: Almoço e Descanso</td></tr><tr><td>14:00 - 18:00</td><td>🚀 Início "React para Iniciantes" (Avançar 4h)</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 50min foco + 10min pausa</td></tr></tbody></table></div>
 
-    <!-- Dia 4 -->
-    <section id="dia4">
-      <h2>Dom - 28/09</h2>
-      <table>
-        <tbody>
-          <tr>
-            <td>09:00 - 12:00</td>
-            <td>React Completo - Parte 1 <span>(3h)</span></td>
-          </tr>
-          <tr>
-            <td>14:00 - 20:00</td>
-            <td>React Completo - Parte 2 <span>(4h36m)</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- Dom, 28/09 -->
+      <div id="dom1" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade</th></tr></thead><tbody><tr><td>09:00 - 12:00</td><td>🚀 Concluir "React para Iniciantes"</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 12:00 - 14:00: Almoço e Descanso</td></tr><tr><td>14:00 - 20:00</td><td>🚀 Avançar no "React Completo" (6h)</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: 50min foco + 10min pausa</td></tr></tbody></table></div>
 
-    <!-- Dia 5 -->
-    <section id="dia5">
-      <h2>Sáb - 04/10</h2>
-      <table>
-        <tbody>
-          <tr>
-            <td>09:00 - 12:00</td>
-            <td>Next.js do Zero ao Avançado - Parte 1 <span>(3h)</span></td>
-          </tr>
-          <tr>
-            <td>14:00 - 20:00</td>
-            <td>Next.js do Zero ao Avançado - Parte 2 <span>(7h04m)</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- Seg, 29/09 -->
+      <div id="seg2" class="tab-content"><table><thead><tr><th>Conteúdo (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>🚀 React Completo (Avançar 2h30m)</td><td>Conceitos básicos, sintaxe e primeiros hooks.</td></tr><tr><td colspan="2" class="pomodoro">04:30-06:30 e 12:00-12:30</td></tr></tbody></table></div>
 
-    <!-- Dia 6 -->
-    <section id="dia6">
-      <h2>Dom - 05/10</h2>
-      <table>
-        <tbody>
-          <tr>
-            <td>09:00 - 12:00</td>
-            <td>NextJS do zero na prática 2025 - Parte 1 <span>(3h)</span></td>
-          </tr>
-          <tr>
-            <td>14:00 - 20:00</td>
-            <td>NextJS do zero na prática 2025 - Parte 2 <span>(6h)</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <!-- Ter, 30/09 -->
+      <div id="ter2" class="tab-content"><table><thead><tr><th>Conteúdo (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>🚀 React Completo (Concluir principais módulos - 2h30m)</td><td>Finalizar fundamentos e rotas em React.</td></tr><tr><td colspan="2" class="pomodoro">04:30-06:30 e 12:00-12:30</td></tr></tbody></table></div>
 
-  </main>
+      <!-- Qua, 01/10 -->
+      <div id="qua2" class="tab-content"><table><thead><tr><th>Conteúdo (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>⚡ Início "Next.js do Zero ao Avançado" (2h30m)</td><td>Páginas, navegação e estilização.</td></tr><tr><td colspan="2" class="pomodoro">04:30-06:30 e 12:00-12:30</td></tr></tbody></table></div>
+
+      <!-- Qui, 02/10 -->
+      <div id="qui2" class="tab-content"><table><thead><tr><th>Conteúdo (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>⚡ Next.js (Avançar módulos - 2h30m)</td><td>Server Actions e autenticação.</td></tr><tr><td colspan="2" class="pomodoro">04:30-06:30 e 12:00-12:30</td></tr></tbody></table></div>
+
+      <!-- Sex, 03/10 -->
+      <div id="sex2" class="tab-content"><table><thead><tr><th>Conteúdo (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>⚡ Next.js (Finalização - 2h30m)</td><td>Projeto NextGram + conclusão.</td></tr><tr><td colspan="2" class="pomodoro">04:30-06:30 e 12:00-12:30</td></tr></tbody></table></div>
+
+      <!-- Sáb, 04/10 -->
+      <div id="sab2" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade</th></tr></thead><tbody><tr><td>09:00 - 13:00</td><td>💻 "NextJS na Prática" (4h)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 13:00 - 15:00: Pausa</td></tr><tr><td>15:00 - 20:00</td><td>💻 Avançar projetos (Board, Dalygames)</td></tr><tr><td colspan="2" class="pomodoro">50/10 ciclos</td></tr></tbody></table></div>
+
+      <!-- Dom, 05/10 -->
+      <div id="dom2" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade</th></tr></thead><tbody><tr><td>09:00 - 13:00</td><td>💻 Projeto Dev Controle (4h)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 13:00 - 15:00: Pausa</td></tr><tr><td>15:00 - 20:00</td><td>💻 Conclusão Projeto Dev Controle + Deploy</td></tr><tr><td colspan="2" class="pomodoro">50/10 ciclos</td></tr></tbody></table></div>
+
+      <!-- Seg, 06/10 -->
+      <div id="seg3" class="tab-content"><table><thead><tr><th>Conteúdo (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>🏆 Revisão Final + Ajustes GitHub</td><td>Organizar repositórios e preparar portfólio.</td></tr><tr><td colspan="2" class="pomodoro">04:30-06:30 e 12:00-12:30</td></tr></tbody></table></div>
+
+      <!-- Ter, 07/10 -->
+      <div id="ter3" class="tab-content"><table><thead><tr><th>Conclusão</th></tr></thead><tbody><tr><td>🎉 Jornada Concluída! Revisão geral e próximos passos.</td></tr><tr><td class="pomodoro">Ritmo livre</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const allTabs = document.querySelectorAll('.tab-btn');
+      const allContents = document.querySelectorAll('.tab-content');
+
+      allTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          allTabs.forEach(t => t.classList.remove('active'));
+          allContents.forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          const targetId = tab.dataset.tab;
+          document.getElementById(targetId).classList.add('active');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
