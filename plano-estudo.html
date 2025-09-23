@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plano de Estudos - Jornada Full-Stack v4</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f4f7f9;
+      --card: #ffffff;
+      --accent: #007acc;
+      --muted: #e0e0e0;
+      --text: #333;
+      --heading: #2c3e50;
+      --break-bg: #fffbe2;
+      --long-break-bg: #e2f1ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 24px;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: var(--card);
+      padding: 28px;
+      border-radius: 10px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+    }
+    h1 {
+        color: var(--heading);
+        margin-bottom: 8px;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 2px solid var(--muted);
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      padding: 10px 16px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-weight: 600;
+      color: #555;
+      transition: 0.2s;
+      font-size: 0.95rem;
+      border-radius: 4px 4px 0 0;
+    }
+    .tab-btn.active {
+      border-bottom: 3px solid var(--accent);
+      color: var(--accent);
+      background-color: #f7f9fc;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+    }
+    thead th {
+      text-align: left;
+      padding: 12px 14px;
+      background: #ecf4fb;
+      color: #244a6b;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    tbody tr:nth-child(even) { background: #fbfdff; }
+    .pomodoro {
+        background-color: #f8f9fa;
+        text-align: center;
+        font-style: italic;
+        color: #555;
+        font-size: 0.9em;
+        padding: 10px;
+    }
+    .long-break-row {
+      background-color: var(--long-break-bg) !important;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Plano de Estudos - Jornada Full-Stack (v4)</h1>
+    <p>Seu cronograma <strong>reajustado</strong> com seus novos horários, começando em <strong>25 de Setembro de 2025</strong>.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="qui1">Qui, 25/09</button>
+      <button class="tab-btn" data-tab="sex1">Sex, 26/09</button>
+      <button class="tab-btn" data-tab="sab1">Sáb, 27/09</button>
+      <button class="tab-btn" data-tab="dom1">Dom, 28/09</button>
+      <button class="tab-btn" data-tab="seg2">Seg, 29/09</button>
+      <button class="tab-btn" data-tab="ter2">Ter, 30/09</button>
+      <button class="tab-btn" data-tab="qua2">Qua, 01/10</button>
+      <button class="tab-btn" data-tab="qui2">Qui, 02/10</button>
+      <button class="tab-btn" data-tab="sex2">Sex, 03/10</button>
+      <button class="tab-btn" data-tab="sab2">Sáb, 04/10</button>
+      <button class="tab-btn" data-tab="dom2">Dom, 05/10</button>
+      <button class="tab-btn" data-tab="seg3">Seg, 06/10</button>
+      <button class="tab-btn" data-tab="ter3">Ter, 07/10</button>
+    </div>
+
+    <div class="content-container">
+        <div id="qui1" class="tab-content active"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>📚 "TUDO que você deve estudar de JS" (1h 25m)<br/>📚 "Aprenda JavaScript em 1 Video" (Início - 1h 5m)</td><td>Finalizar o 1º curso e começar o 2º para solidificar a base de JS.</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30<br>Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="sex1" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>📚 "Aprenda JavaScript em 1 Video" (Conclusão - 1h 10m)<br/>📚 Módulo JS Detalhado (Início - 1h 20m)</td><td>Concluir os cursos introdutórios de JS e iniciar o módulo aprofundado.</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30<br>Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="sab1" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade (Imersão JS e React)</th></tr></thead><tbody><tr><td>09:00 - 12:00</td><td>📚 Módulo JS Detalhado (Conclusão - 1h 30m)<br/>🚀 "React para Iniciantes" (Início - 1h 30m)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 12:00 - 14:00: Pausa para Almoço e Descanso</td></tr><tr><td>14:00 - 18:00</td><td>🏆 <strong>JavaScript Finalizado!</strong><br/>🚀 "React para Iniciantes" (Conclusão - 55m)<br/>🚀 Módulo React Completo (Avançar 3h 5m)</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: Ciclos de 50min de Foco + 10min de Pausa.</td></tr></tbody></table></div>
+        <div id="dom1" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade (Finalizar React e Iniciar Next.js)</th></tr></thead><tbody><tr><td>09:00 - 12:00</td><td>🚀 Módulo React Completo (Avançar 3h)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 12:00 - 14:00: Pausa para Almoço e Descanso</td></tr><tr><td>14:00 - 20:00</td><td>🚀 Concluir o Módulo React Completo (Restante - 1h 31m)<br/>🏆 <strong>React Finalizado!</strong><br/>⚡ "Dominando Next JS" (Concluir - 1h 20m)<br/>⚡ "Next.js do Zero ao Avançado" (Avançar 3h 9m)</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: Ciclos de 50min de Foco + 10min de Pausa.</td></tr></tbody></table></div>
+        <div id="seg2" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>⚡ "Next.js do Zero ao Avançado" (Avançar 2h 30m)</td><td>Aprofundar nos conceitos de Páginas, Navegação e Estilização em Next.js.</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30<br>Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="ter2" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>⚡ "Next.js do Zero ao Avançado" (Avançar 2h 30m)</td><td>Focar em Fetch, Server Actions e Cache.</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30<br>Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="qua2" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>⚡ "Next.js do Zero ao Avançado" (Conclusão - 1h 55m)<br/>💻 "NextJS na Prática" (Início - 35m)</td><td>Finalizar a base teórica de Next.js e iniciar o curso focado em projetos práticos.</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30<br>Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="qui2" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>💻 "NextJS na Prática" (Avançar 2h 30m)</td><td>Foco no módulo "Começando com ReactJS" e no "Primeiro Projeto".</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30<br>Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="sex2" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>💻 "NextJS na Prática" (Avançar 2h 30m)</td><td>Continuar o desenvolvimento do "Primeiro Projeto" e iniciar o projeto "Board Tarefas".</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30<br>Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="sab2" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade (Imersão Projetos Next.js)</th></tr></thead><tbody><tr><td>09:00 - 12:00</td><td>💻 "NextJS na Prática" (Avançar 3h)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 12:00 - 14:00: Pausa para Almoço e Descanso</td></tr><tr><td>14:00 - 20:00</td><td>💻 "NextJS na Prática" (Avançar 6h)<br/>Foco total nos projetos "dalygames" e "sistema completo + CMS".</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: Ciclos de 50min de Foco + 10min de Pausa.</td></tr></tbody></table></div>
+        <div id="dom2" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade (Imersão Projeto Final)</th></tr></thead><tbody><tr><td>09:00 - 12:00</td><td>💻 "NextJS na Prática" (Avançar 3h)</td></tr><tr class="long-break-row"><td colspan="2">🍽️ 12:00 - 14:00: Pausa para Almoço e Descanso</td></tr><tr><td>14:00 - 20:00</td><td>💻 "NextJS na Prática" (Avançar 6h)<br/>Foco total no avanço do projeto final "Dev Controle".</td></tr><tr><td colspan="2" class="pomodoro">Ritmo: Ciclos de 50min de Foco + 10min de Pausa.</td></tr></tbody></table></div>
+        <div id="seg3" class="tab-content"><table><thead><tr><th>Conteúdo do Dia (2h 30m)</th><th>Foco</th></tr></thead><tbody><tr><td>🏆 "NextJS na Prática" (Conclusão - 1h 59m)<br/>🚀 Módulo de Deploy (15m)</td><td>Finalizar o último projeto prático e aprender a publicar seus projetos.</td></tr><tr><td colspan="2" class="pomodoro">Sessões: 04:30-06:30 e 12:00-12:30<br>Ritmo: 3x (45min Foco + 5min Pausa)</td></tr></tbody></table></div>
+        <div id="ter3" class="tab-content"><table><thead><tr><th>Horário</th><th>Atividade de Conclusão</th></tr></thead><tbody><tr><td>-</td><td>🎉 <strong>JORNADA CONCLUÍDA!</strong><br/>Parabéns por completar essa maratona de estudos. Você construiu uma base sólida em JavaScript, React e Next.js.<br/><strong>Próximos Passos:</strong> Use o dia para revisar os projetos, organizar seu GitHub e planejar seu primeiro projeto 100% pessoal!</td></tr><tr><td colspan="2" class="pomodoro">Ritmo livre para celebrar e planejar os próximos passos!</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const allTabs = document.querySelectorAll('.tab-btn');
+      const allContents = document.querySelectorAll('.tab-content');
+
+      allTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove a classe 'active' de todas as abas e conteúdos
+          allTabs.forEach(t => t.classList.remove('active'));
+          allContents.forEach(c => c.classList.remove('active'));
+          
+          // Adiciona a classe 'active' à aba clicada e ao conteúdo correspondente
+          tab.classList.add('active');
+          const targetId = tab.dataset.tab;
+          document.getElementById(targetId).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
