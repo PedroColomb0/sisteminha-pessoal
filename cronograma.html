@@ -9,37 +9,10 @@
       padding: 20px;
     }
 
-    .tabs {
-      display: flex;
-      border-bottom: 2px solid #ccc;
-      margin-bottom: 10px;
-    }
-
-    .tab {
-      padding: 10px 20px;
-      cursor: pointer;
-      border: 1px solid transparent;
-      border-bottom: none;
-      background-color: #f2f2f2;
-      margin-right: 5px;
-    }
-
-    .tab.active {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-bottom: none;
-      font-weight: bold;
-    }
-
     .tab-content {
-      display: none;
       padding: 10px;
       border: 1px solid #ccc;
       background-color: #fff;
-    }
-
-    .tab-content.active {
-      display: block;
     }
 
     table {
@@ -69,12 +42,7 @@
 <body>
   <h1>Cronograma</h1>
 
-  <div class="tabs">
-    <div class="tab active" onclick="openTab('lista1')">Dia da Semana</div>
-    <div class="tab" onclick="openTab('lista2')">Dia de Plantão</div>
-  </div>
-
-  <div id="lista1" class="tab-content active">
+  <div id="lista1" class="tab-content">
     <h2>Seg - Sexta</h2>
     <table>
       <thead>
@@ -239,176 +207,5 @@
       </tbody>
     </table>
   </div>
-
-  <div id="lista2" class="tab-content">
-    <h2>Seg - Sexta</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Horário</th>
-          <th>Segunda</th>
-          <th>Terça</th>
-          <th>Quarta</th>
-          <th>Quinta</th>
-          <th>Sexta</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>06:00 - 07:00</td>
-          <td>Acordar - Café - Arrumar</td>
-          <td>Acordar - Café - Arrumar</td>
-          <td>Acordar - Café - Arrumar</td>
-          <td>Acordar - Café - Arrumar</td>
-          <td>Acordar - Café - Arrumar</td>
-        </tr>
-        <tr>
-          <td>07:30 - 10:00</td>
-          <td>Estudar</td>
-          <td>Estudar</td>
-          <td>Estudar</td>
-          <td>Estudar</td>
-          <td>Estudar</td>
-        </tr>
-        <tr>
-          <td>10:00 - 13:00</td>
-          <td>Trabalhar</td>
-          <td>Trabalhar</td>
-          <td>Trabalhar</td>
-          <td>Trabalhar</td>
-          <td>Trabalhar</td>
-        </tr>
-        <tr>
-          <td>13:00 - 13:30</td>
-          <td>Descansar</td>
-          <td>Descansar</td>
-          <td>Descansar</td>
-          <td>Descansar</td>
-          <td>Descansar</td>
-        </tr>
-        <tr>
-          <td>13:30 - 14:00</td>
-          <td>Almoçar</td>
-          <td>Almoçar</td>
-          <td>Almoçar</td>
-          <td>Almoçar</td>
-          <td>Almoçar</td>
-        </tr>
-        <tr>
-          <td>14:00 - 18:0</td>
-          <td>Trabalhar</td>
-          <td>Trabalhar</td>
-          <td>Trabalhar</td>
-          <td>Trabalhar</td>
-          <td>Trabalhar</td>
-        </tr>
-        <tr>
-          <td>18:00 - 19:00</td>
-          <td>Fisioterapia</td>
-          <td>Fisioterapia</td>
-          <td>Fisioterapia</td>
-          <td>Fisioterapia</td>
-          <td>Fisioterapia</td>
-        </tr>
-        <tr>
-          <td>19:15 - 19:45</td>
-          <td>Academia</td>
-          <td>Academia</td>
-          <td>Academia</td>
-          <td>Academia</td>
-          <td>Minha vida</td>
-        </tr>
-        <tr>
-          <td>19:45 - 20:30</td>
-          <td>Jantar - Banho - Descansar</td>
-          <td>Jantar - Banho - Descansar</td>
-          <td>Jantar - Banho - Descansar</td>
-          <td>Jantar - Banho - Descansar</td>
-          <td>Minha vida</td>
-        </tr>
-        <tr>
-          <td>20:30 - 22:30</td>
-          <td>Estudar</td>
-          <td>Estudar</td>
-          <td>Estudar</td>
-          <td>Estudar</td>
-          <td>Minha vida</td>
-        </tr>
-        <tr>
-          <td>22:30 - 06:00</td>
-          <td>Falar Minha vida - Dormir</td>
-          <td>Falar Minha vida - Dormir</td>
-          <td>Falar Minha vida - Dormir</td>
-          <td>Falar Minha vida - Dormir</td>
-          <td>Minha vida</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Sábado</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Horário</th>
-          <th>Sábado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>08:00 - 08:30</td>
-          <td>Acordar - Café - Banho</td>
-        </tr>
-        <tr>
-          <td>08:30 - 12:00</td>
-          <td>Estudar</td>
-        </tr>
-        <tr>
-          <td>12:00 - 13:00</td>
-          <td>Almoçar - Se Arrumar - Ir para Minha vida</td>
-        </tr>
-        <tr>
-          <td>13:00 - Até a Noite </td>
-          <td>Minha vida</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Domingo</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Horário</th>
-          <th>Domingo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>08:00 - 08:30</td>
-          <td>Acordar - Café - Banho</td>
-        </tr>
-        <tr>
-          <td>08:30 - 12:00</td>
-          <td>Estudar</td>
-        </tr>
-        <tr>
-          <td>12:00 - 13:00</td>
-          <td>Almoçar - Se Arrumar - Ir para Minha vida</td>
-        </tr>
-        <tr>
-          <td>13:00 - Até a Noite </td>
-          <td>Minha vida</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <script>
-    function openTab(tabId) {
-      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-      document.querySelector(`.tab[onclick*="${tabId}"]`).classList.add('active');
-      document.getElementById(tabId).classList.add('active');
-    }
-  </script>
 </body>
 </html>
